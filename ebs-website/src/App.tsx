@@ -7,6 +7,7 @@ import Hero from './components/Hero/Hero';
 import Services from './components/Services/Services';
 import Metrics from './components/Metrics/Metrics';
 import Awards from './components/Awards/Awards';
+import Partners from './components/Partners/Partners';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -30,6 +31,7 @@ const App: React.FC = () => {
           <Services />
           <Metrics />
           <Awards />
+          <Partners />
         </MainContent>
       </AppContainer>
     </Router>
