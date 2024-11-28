@@ -6,7 +6,7 @@ import { OrbitControls, Environment } from '@react-three/drei';
 import { Mesh, Group } from 'three';
 
 const AwardsSection = styled.section`
-  padding: 100px 0;
+  padding: 60px 0;
   background: #ffffff;
   position: relative;
   overflow: hidden;
@@ -20,9 +20,9 @@ const Container = styled.div`
 
 const Title = styled.h2`
   text-align: center;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: #333333;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -31,7 +31,7 @@ const Title = styled.h2`
   &::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -42,20 +42,24 @@ const Title = styled.h2`
 
 const AwardsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 300px);
   gap: 40px;
+  justify-content: center;
+  margin: 0 auto;
   
   @media (max-width: 968px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 300px;
   }
 `;
 
 const AwardCard = styled.div`
   background: #ffffff;
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 300px;
+  aspect-ratio: 1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -64,26 +68,41 @@ const AwardCard = styled.div`
   transition: transform 0.3s ease;
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   }
 `;
 
 const ModelContainer = styled.div`
   width: 100%;
-  height: 300px;
-  margin-bottom: 30px;
+  aspect-ratio: 1;
+  margin-bottom: 12px;
   background: rgba(0, 0, 0, 0.02);
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const AwardTitle = styled.h3`
-  font-size: 1.5rem;
-  color: #333333;
-  margin-bottom: 15px;
-  font-weight: 500;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-weight: 600;
   line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+
+  span {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #666;
+    text-transform: none;
+    display: block;
+    margin-top: 4px;
+  }
 `;
 
 function Trophy({ position, rotation }: { position: [number, number, number], rotation: [number, number, number] }) {
@@ -96,7 +115,7 @@ function Trophy({ position, rotation }: { position: [number, number, number], ro
   });
 
   return (
-    <group ref={group} position={position} rotation={rotation} scale={[1, 1, 1]}>
+    <group ref={group} position={position} rotation={rotation} scale={[0.8, 0.8, 0.8]}>
       {/* Base */}
       <mesh position={[0, -1.5, 0]}>
         <cylinderGeometry args={[0.8, 1, 0.3, 32]} />
@@ -191,7 +210,11 @@ const Awards: React.FC = () => {
               </Canvas>
             </ModelContainer>
             <AwardTitle>
-              South India's Best Direct Sales Associate of HDFC Bank Ltd
+              Top DSA - HDFC Bank
+              <br />
+              <span>
+                South India's Best Direct Sales Associate
+              </span>
             </AwardTitle>
           </AwardCard>
 
@@ -207,7 +230,11 @@ const Awards: React.FC = () => {
               </Canvas>
             </ModelContainer>
             <AwardTitle>
-              Ranked Top 3 Channel Partner in Pan India for Crossing 100 Crores in Unsecured Business
+              Elite Partner
+              <br />
+              <span>
+                Top 3 Channel Partner for ₹100+ Crore Unsecured Business
+              </span>
             </AwardTitle>
           </AwardCard>
         </AwardsGrid>

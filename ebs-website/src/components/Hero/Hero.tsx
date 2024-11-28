@@ -12,6 +12,7 @@ const HeroSection = styled.section`
   overflow: hidden;
   background: #f8f9fa;
   margin-top: 130px;
+  perspective: 1000px;
 `;
 
 const CarouselContainer = styled.div`
@@ -35,6 +36,7 @@ const Slide = styled.div<{ $backgroundImage: string }>`
   padding: 0 5%;
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
 
   &::before {
     content: '';
@@ -52,11 +54,12 @@ const Slide = styled.div<{ $backgroundImage: string }>`
     };
     background-repeat: no-repeat;
     z-index: 1;
-    filter: brightness(0.95);
+    filter: brightness(0.85);
     transform: ${props => 
       props.$backgroundImage.includes('personal-loan-hero') ? 'scale(1.2)' :
       'scale(1)'
-    };
+    } translateZ(-10px);
+    transition: transform 0.3s ease-out;
   }
 `;
 
@@ -70,17 +73,25 @@ const SlideContent = styled.div`
   z-index: 2;
   padding: 0 20px;
   position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
 `;
 
 const TextContent = styled.div`
   max-width: 800px;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  background: rgba(0,0,0,0.4);
   padding: 40px;
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+  }
 `;
 
 const Title = styled.h1`
@@ -88,15 +99,17 @@ const Title = styled.h1`
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.2;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
-  text-align: center;
+  background: linear-gradient(120deg, #2193b0 0%, #6dd5ed 50%, #2193b0 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
 
-  @keyframes fadeInUp {
+  @keyframes shine {
     to {
-      opacity: 1;
-      transform: translateY(0);
+      background-position: 200% center;
     }
   }
 
@@ -109,7 +122,8 @@ const Description = styled.p`
   font-size: 1.25rem;
   margin-bottom: 32px;
   line-height: 1.6;
-  opacity: 0;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   transform: translateY(20px);
   animation: fadeInUp 0.5s forwards 0.2s;
   text-align: center;
@@ -120,19 +134,21 @@ const LearnMoreButton = styled(Button)`
   padding: 0 32px;
   font-size: 1.1rem;
   border-radius: 24px;
-  background: transparent;
-  border: 2px solid white;
+  background: linear-gradient(120deg, #2193b0 0%, #6dd5ed 100%);
+  border: none;
   color: white;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards 0.4s;
-  margin: 0 auto;
-  display: block;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 147, 176, 0.3);
 
   &:hover {
-    background: white !important;
-    color: #0094d9 !important;
-    border-color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(33, 147, 176, 0.4);
+    background: linear-gradient(120deg, #2193b0 0%, #84e0f7 100%);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
@@ -202,6 +218,26 @@ const slides = [
   },
 ];
 
+const useParallaxEffect = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax');
+      
+      parallaxElements.forEach((element) => {
+        const speed = element.getAttribute('data-speed') || '0.5';
+        const movement = scrolled * parseFloat(speed);
+        if (element instanceof HTMLElement) {
+          element.style.transform = `translate3d(0, ${movement}px, 0)`;
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+};
+
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -209,6 +245,8 @@ const Hero: React.FC = () => {
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useParallaxEffect();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -281,7 +319,7 @@ const Hero: React.FC = () => {
       >
         {slides.map((slide, index) => (
           <Slide key={index} $backgroundImage={slide.image}>
-            <SlideContent>
+            <SlideContent className="parallax" data-speed="0.5">
               <TextContent>
                 <Title>{slide.title}</Title>
                 <Description>{slide.description}</Description>
@@ -292,10 +330,10 @@ const Hero: React.FC = () => {
         ))}
       </CarouselContainer>
 
-      <CarouselButton $direction="left" onClick={prevSlide} style={{ opacity: currentSlide === 0 ? 0.5 : 1 }}>
+      <CarouselButton $direction="left" onClick={prevSlide} style={{ opacity: currentSlide === 0 ? 0.5 : 1 }} className="parallax" data-speed="0.3">
         <LeftOutlined />
       </CarouselButton>
-      <CarouselButton $direction="right" onClick={nextSlide} style={{ opacity: currentSlide === slides.length - 1 ? 0.5 : 1 }}>
+      <CarouselButton $direction="right" onClick={nextSlide} style={{ opacity: currentSlide === slides.length - 1 ? 0.5 : 1 }} className="parallax" data-speed="0.3">
         <RightOutlined />
       </CarouselButton>
 

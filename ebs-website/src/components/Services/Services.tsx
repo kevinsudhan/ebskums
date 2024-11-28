@@ -1,117 +1,242 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Radio, RadioChangeEvent } from 'antd';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import {
+  AnimatedSection,
+  GradientText,
+  HoverCard,
+  fadeInVariants,
+  containerVariants,
+  slideVariants
+} from '../Animations/AnimatedComponents';
+
+// Import images
 import personalLoanImg from '../../assets/images/services/personal-loan.jpg';
 import businessLoanImg from '../../assets/images/services/business-loan.jpg';
 import homeLoanImg from '../../assets/images/services/home-loan.jpg';
 import creditCardImg from '../../assets/images/services/credit-card.jpg';
 import healthInsuranceImg from '../../assets/images/services/health-insurance.jpg';
 import lifeInsuranceImg from '../../assets/images/services/life-insurance.jpg';
-import propertyLoanImg from '../../assets/images/services/property-loan.jpg';
 import goldLoanImg from '../../assets/images/services/gold-loan.jpg';
 import shortTermLoanImg from '../../assets/images/services/short-term-loan.jpg';
 
-const ServicesSection = styled.section`
-  padding: 80px 5%;
-  background: #ffffff;
+const ServicesSection = styled(AnimatedSection)`
+  padding: 100px 5%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 148, 217, 0.2), transparent);
+  }
 `;
 
-const SectionHeader = styled.div`
+const Container = styled(motion.div)`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const SectionHeader = styled(motion.div)`
   text-align: center;
   margin-bottom: 60px;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   font-size: 2.5rem;
   color: #1a1a1a;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #0094d9, #0077b6);
+    border-radius: 2px;
+  }
 `;
 
-const Subtitle = styled.p`
+const Subtitle = styled(motion.p)`
   font-size: 1.1rem;
   color: #666;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
+  line-height: 1.6;
 `;
 
-const FilterContainer = styled.div`
+const FilterContainer = styled(motion.div)`
   text-align: center;
   margin-bottom: 40px;
+
+  .ant-radio-group {
+    display: inline-flex;
+    background: white;
+    padding: 4px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 4px;
+
+    .ant-radio-button-wrapper {
+      height: 36px;
+      line-height: 36px;
+      border: none;
+      background: transparent;
+      padding: 0 24px;
+      border-radius: 18px;
+      transition: all 0.3s ease;
+
+      &:not(:first-child)::before {
+        display: none;
+      }
+
+      &:hover {
+        color: #0094d9;
+      }
+
+      &.ant-radio-button-wrapper-checked {
+        background: linear-gradient(135deg, #0094d9 0%, #0077b6 100%);
+        color: white;
+        box-shadow: 0 2px 6px rgba(0, 148, 217, 0.3);
+      }
+    }
+  }
 `;
 
-const CardsGrid = styled.div`
+const CardsGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  max-width: 1400px;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
   }
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 15px;
   }
 `;
 
-const ServiceCard = styled.div`
+const ServiceCard = styled(HoverCard)`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   }
 `;
 
-const CardImage = styled.div<{ $backgroundImage: string }>`
-  height: 180px;
+const CardImage = styled(motion.div)<{ $backgroundImage: string }>`
+  height: 160px;
   background-image: url(${props => props.$backgroundImage});
   background-size: cover;
   background-position: center;
+  border-radius: 8px 8px 0 0;
   position: relative;
+  overflow: hidden;
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  ${ServiceCard}:hover &::before {
+    opacity: 1;
   }
 `;
 
-const CardContent = styled.div`
-  padding: 24px;
-  background: white;
+const CardContent = styled(motion.div)`
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #0094d9, #0077b6);
+    border-radius: 1px;
+    transition: width 0.3s ease;
+  }
+
+  ${ServiceCard}:hover &::before {
+    width: 50px;
+  }
 `;
 
-const CardTitle = styled.h3`
-  font-size: 1.25rem;
+const CardTitle = styled(motion.h3)`
+  font-size: 1.1rem;
   color: #1a1a1a;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: 600;
   line-height: 1.4;
+  min-height: 2.4em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
-const CardDescription = styled.p`
+const CardDescription = styled(motion.p)`
   color: #666;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+const ServiceLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  display: block;
 `;
 
 type ServiceType = 'all' | 'loans' | 'cards' | 'insurance';
@@ -169,15 +294,15 @@ const services: Service[] = [
   },
   {
     id: 7,
-    title: 'Property Loan',
-    description: 'Get loans against your property with competitive rates and flexible terms',
+    title: 'Short Term Loan',
+    description: 'Quick loans for immediate financial needs with flexible repayment options',
     image: shortTermLoanImg,
     type: ['loans'],
   },
   {
     id: 8,
-    title: 'Loan Against Property',
-    description: 'Unlock the value of your property with minimal documentation and quick processing',
+    title: 'Gold Loan',
+    description: 'Unlock the value of your gold with minimal documentation and quick processing',
     image: goldLoanImg,
     type: ['loans'],
   }
@@ -185,48 +310,68 @@ const services: Service[] = [
 
 const Services: React.FC = () => {
   const [filter, setFilter] = useState<ServiceType>('all');
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
 
   const handleFilterChange = (e: RadioChangeEvent) => {
     setFilter(e.target.value);
   };
 
-  const filteredServices = services.filter(service => 
-    filter === 'all' ? true : service.type.includes(filter)
-  );
+  const filteredServices = filter === 'all'
+    ? services
+    : services.filter(service => service.type.includes(filter));
 
   return (
-    <ServicesSection>
-      <SectionHeader>
-        <Title>Our Services</Title>
-        <Subtitle>
-          Discover our comprehensive range of financial solutions tailored to your needs
-        </Subtitle>
-      </SectionHeader>
+    <ServicesSection
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={fadeInVariants}
+    >
+      <Container variants={containerVariants}>
+        <SectionHeader>
+          <Title>
+            Our <GradientText>Services</GradientText>
+          </Title>
+          <Subtitle variants={fadeInVariants}>
+            Explore our comprehensive range of financial solutions tailored to meet your needs
+          </Subtitle>
+        </SectionHeader>
 
-      <FilterContainer>
-        <Radio.Group
-          value={filter}
-          onChange={handleFilterChange}
-          buttonStyle="solid"
-        >
-          <Radio.Button value="all">All Services</Radio.Button>
-          <Radio.Button value="loans">Loans</Radio.Button>
-          <Radio.Button value="cards">Cards</Radio.Button>
-          <Radio.Button value="insurance">Insurance</Radio.Button>
-        </Radio.Group>
-      </FilterContainer>
+        <FilterContainer variants={fadeInVariants}>
+          <Radio.Group
+            value={filter}
+            onChange={handleFilterChange}
+            buttonStyle="solid"
+            size="large"
+          >
+            <Radio.Button value="all">All Services</Radio.Button>
+            <Radio.Button value="loans">Loans</Radio.Button>
+            <Radio.Button value="cards">Cards</Radio.Button>
+            <Radio.Button value="insurance">Insurance</Radio.Button>
+          </Radio.Group>
+        </FilterContainer>
 
-      <CardsGrid>
-        {filteredServices.map(service => (
-          <ServiceCard key={service.id}>
-            <CardImage $backgroundImage={service.image} />
-            <CardContent>
-              <CardTitle>{service.title}</CardTitle>
-              <CardDescription>{service.description}</CardDescription>
-            </CardContent>
-          </ServiceCard>
-        ))}
-      </CardsGrid>
+        <CardsGrid variants={containerVariants}>
+          {filteredServices.map((service) => (
+            <ServiceLink key={service.id} to={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+              <ServiceCard variants={slideVariants}>
+                <CardImage
+                  $backgroundImage={service.image}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <CardContent>
+                  <CardTitle>{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
+                </CardContent>
+              </ServiceCard>
+            </ServiceLink>
+          ))}
+        </CardsGrid>
+      </Container>
     </ServicesSection>
   );
 };

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Menu, Layout } from 'antd';
 import type { MenuProps } from 'antd';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import ebsLogo from './ebslogo.jpg';
 
 const { Header } = Layout;
 
@@ -44,6 +45,49 @@ const NavContainer = styled.div`
   align-items: center;
   height: 100%;
   padding: 0 28px;
+`;
+
+const LogoContainer = styled.div`
+  height: 42px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding-right: 40px;
+  cursor: pointer;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 28px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+`;
+
+const LogoImage = styled.img`
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+`;
+
+const CompanyName = styled.div`
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+
+  .company-bold {
+    font-weight: 600;
+    margin-left: 6px;
+  }
 `;
 
 const StyledMenu = styled(Menu)`
@@ -141,94 +185,10 @@ const StyledMenu = styled(Menu)`
   }
 `;
 
-const LogoContainer = styled.div`
-  height: 42px;
-  margin-right: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  padding-right: 40px;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    height: 28px;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.2);
-  }
-`;
-
-const LogoImage = styled.img`
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-`;
-
-const CompanyName = styled.div`
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
-
-  .company-bold {
-    font-weight: 600;
-    margin-left: 6px;
-  }
-`;
-
-const items: MenuProps['items'] = [
-  {
-    label: 'Home',
-    key: 'home',
-  },
-  {
-    label: 'Credit Cards',
-    key: 'creditCards',
-    children: [
-      { label: 'IDFC Bank Credit Card', key: 'idfc' },
-      { label: 'AU Bank Credit Card', key: 'au' },
-      { label: 'Yes Bank Credit Card', key: 'yes' },
-      { label: 'Axis Bank Credit Card', key: 'axis' },
-      { label: 'Indusind Credit Card', key: 'indusind' },
-      { label: 'HDFC Credit Card', key: 'hdfc' },
-      { label: 'ICICI Bank Credit Card', key: 'icici' },
-    ],
-  },
-  {
-    label: 'Loans',
-    key: 'loans',
-    children: [
-      { label: 'Personal Loans', key: 'personal' },
-      { label: 'Business Loan', key: 'business' },
-      { label: 'Home Loan', key: 'home' },
-      { label: 'Home Loan Balance Transfer', key: 'transfer' },
-      { label: 'Loan Against Property', key: 'lap' },
-      { label: 'Gold Loan', key: 'gold' },
-    ],
-  },
-  {
-    label: 'Insurance',
-    key: 'insurance',
-    children: [
-      { label: 'Health Insurance', key: 'health' },
-      { label: 'Life Insurance', key: 'life' },
-    ],
-  },
-  {
-    label: 'About Us',
-    key: 'about',
-  },
-];
-
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -242,24 +202,75 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
+
+  const menuItems: MenuProps['items'] = [
+    {
+      label: <Link to="/" onClick={handleHomeClick}>Home</Link>,
+      key: 'home',
+    },
+    {
+      label: 'Credit Cards',
+      key: 'creditCards',
+      children: [
+        { label: <Link to="/services/credit-cards">IDFC Bank Credit Card</Link>, key: 'idfc' },
+        { label: <Link to="/services/credit-cards">AU Bank Credit Card</Link>, key: 'au' },
+        { label: <Link to="/services/credit-cards">Yes Bank Credit Card</Link>, key: 'yes' },
+        { label: <Link to="/services/credit-cards">Axis Bank Credit Card</Link>, key: 'axis' },
+        { label: <Link to="/services/credit-cards">Indusind Credit Card</Link>, key: 'indusind' },
+        { label: <Link to="/services/credit-cards">HDFC Credit Card</Link>, key: 'hdfc' },
+        { label: <Link to="/services/credit-cards">ICICI Bank Credit Card</Link>, key: 'icici' },
+      ],
+    },
+    {
+      label: 'Loans',
+      key: 'loans',
+      children: [
+        { label: <Link to="/services/personal-loan">Personal Loans</Link>, key: 'personal' },
+        { label: <Link to="/services/business-loan">Business Loan</Link>, key: 'business' },
+        { label: <Link to="/services/home-loan">Home Loan</Link>, key: 'home' },
+        { label: <Link to="/services/home-loan-balance-transfer">Home Loan Balance Transfer</Link>, key: 'transfer' },
+        { label: <Link to="/services/loan-against-property">Loan Against Property</Link>, key: 'lap' },
+        { label: <Link to="/services/gold-loan">Gold Loan</Link>, key: 'gold' },
+      ],
+    },
+    {
+      label: 'Insurance',
+      key: 'insurance',
+      children: [
+        { label: <Link to="/services/health-insurance">Health Insurance</Link>, key: 'health' },
+        { label: <Link to="/services/life-insurance">Life Insurance</Link>, key: 'life' },
+      ],
+    },
+    {
+      label: <Link to="/about">About Us</Link>,
+      key: 'about',
+    },
+  ];
 
   return (
     <StyledHeader>
       <NavbarContainer $scrolled={scrolled}>
         <NavContainer>
-          <LogoContainer>
-            <LogoImage src="src/components/Navbar/ebslogo.jpg" alt="EBS Logo" />
-            <CompanyName>
-              Everyday Banking <span className="company-bold">Solutions</span>
-            </CompanyName>
-          </LogoContainer>
+          <Link to="/" onClick={handleHomeClick}>
+            <LogoContainer>
+              <LogoImage src={ebsLogo} alt="EBS Logo" />
+              <CompanyName>
+                Everyday Banking<span className="company-bold">Solutions</span>
+              </CompanyName>
+            </LogoContainer>
+          </Link>
           <StyledMenu
-            onClick={onClick}
             mode="horizontal"
-            items={items}
+            items={menuItems}
             theme="dark"
             disabledOverflow={true}
           />

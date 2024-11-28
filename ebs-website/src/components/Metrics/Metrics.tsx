@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
 const MetricsSection = styled.section`
-  padding: 120px 0;
+  padding: 60px 0;
   background: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
   position: relative;
   overflow: hidden;
@@ -33,7 +33,7 @@ const Title = styled.h2`
   text-align: center;
   font-size: 2.5rem;
   color: #ffffff;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 600;
   position: relative;
   width: 100%;
@@ -41,9 +41,9 @@ const Title = styled.h2`
 
 const SubTitle = styled.h3`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   font-weight: 500;
   position: relative;
   width: 100%;
@@ -54,7 +54,7 @@ const MetricsCard = styled.div`
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
@@ -93,7 +93,7 @@ const MetricsGrid = styled.div`
 
 const MetricItem = styled.div`
   text-align: center;
-  padding: 30px;
+  padding: 20px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
