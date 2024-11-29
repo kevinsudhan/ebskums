@@ -26,15 +26,31 @@ const NavbarContainer = styled.div`
   padding: 0 24px;
 `;
 
+const LogoSection = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 280px;
+`;
+
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+  gap: 16px;
 
   img {
-    height: 45px;
+    height: 40px;
     width: auto;
     object-fit: contain;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    letter-spacing: -0.2px;
   }
 `;
 
@@ -42,7 +58,8 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;
-  margin: 0 48px;
+  justify-content: center;
+  flex: 1;
 `;
 
 const NavLink = styled(Link)<{ $active?: boolean }>`
@@ -85,6 +102,8 @@ const ActionButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 280px;
+  justify-content: flex-end;
 `;
 
 const AboutUsButton = styled(Button)`
@@ -192,18 +211,21 @@ const Navbar: React.FC = () => {
   return (
     <StyledHeader>
       <NavbarContainer>
-        <Link to="/" onClick={handleHomeClick}>
-          <LogoContainer>
-            <img src={ebsLogo} alt="EBS Finance" />
-          </LogoContainer>
-        </Link>
+        <LogoSection>
+          <Link to="/" onClick={handleHomeClick}>
+            <LogoContainer>
+              <img src={ebsLogo} alt="EBS Finance" />
+              <span>Everyday Banking Solutions</span>
+            </LogoContainer>
+          </Link>
+        </LogoSection>
 
         <NavLinks>
           <NavLink to="/" onClick={handleHomeClick} $active={location.pathname === '/'}>
             Home
           </NavLink>
           <Dropdown overlay={cardsMenu} trigger={['hover']}>
-            <NavLink to="#" $active={location.pathname.includes('cards')}>
+            <NavLink to="/credit-cards" $active={location.pathname.includes('credit-cards')}>
               Cards <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
@@ -220,7 +242,9 @@ const Navbar: React.FC = () => {
         </NavLinks>
 
         <ActionButtons>
-          <AboutUsButton>About Us</AboutUsButton>
+          <Link to="/about-us">
+            <AboutUsButton>About Us</AboutUsButton>
+          </Link>
         </ActionButtons>
       </NavbarContainer>
     </StyledHeader>

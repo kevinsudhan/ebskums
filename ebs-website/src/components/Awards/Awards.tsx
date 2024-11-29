@@ -1,9 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Canvas } from '@react-three/fiber';
-import { useFrame } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
-import { Mesh, Group } from 'three';
+import goldenLaurel from '../../assets/images/golden laurel.png';
 
 const AwardsSection = styled.section`
   padding: 60px 0;
@@ -73,16 +70,24 @@ const AwardCard = styled.div`
   }
 `;
 
-const ModelContainer = styled.div`
-  width: 100%;
-  aspect-ratio: 1;
-  margin-bottom: 12px;
-  background: rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
-  overflow: hidden;
+const ImageContainer = styled.div`
+  width: 180px;
+  height: 180px;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  ${AwardCard}:hover & img {
+    transform: scale(1.05);
+  }
 `;
 
 const AwardTitle = styled.h3`
@@ -105,93 +110,6 @@ const AwardTitle = styled.h3`
   }
 `;
 
-function Trophy({ position, rotation }: { position: [number, number, number], rotation: [number, number, number] }) {
-  const group = useRef<Group>();
-  
-  useFrame((state) => {
-    if (group.current) {
-      group.current.rotation.y += 0.01;
-    }
-  });
-
-  return (
-    <group ref={group} position={position} rotation={rotation} scale={[0.8, 0.8, 0.8]}>
-      {/* Base */}
-      <mesh position={[0, -1.5, 0]}>
-        <cylinderGeometry args={[0.8, 1, 0.3, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-      </mesh>
-      <mesh position={[0, -1.2, 0]}>
-        <cylinderGeometry args={[0.4, 0.8, 0.3, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-      </mesh>
-
-      {/* Stem */}
-      <mesh position={[0, -0.5, 0]}>
-        <cylinderGeometry args={[0.15, 0.15, 1.5, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-      </mesh>
-
-      {/* Cup */}
-      <mesh position={[0, 0.8, 0]}>
-        <cylinderGeometry args={[0.7, 0.2, 1.2, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.9} roughness={0.1} />
-      </mesh>
-      <mesh position={[0, 1.5, 0]}>
-        <cylinderGeometry args={[0.8, 0.7, 0.6, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.9} roughness={0.1} />
-      </mesh>
-
-      {/* Handles */}
-      <group position={[0, 0.8, 0]}>
-        {/* Left Handle */}
-        <group position={[-0.7, 0, 0]}>
-          {/* Upper curve */}
-          <mesh position={[0, 0.3, 0]} rotation={[0, 0, Math.PI * 0.25]}>
-            <torusGeometry args={[0.25, 0.05, 16, 32, Math.PI * 0.6]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-          {/* Lower curve */}
-          <mesh position={[0, -0.3, 0]} rotation={[0, 0, -Math.PI * 0.25]}>
-            <torusGeometry args={[0.25, 0.05, 16, 32, Math.PI * 0.6]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-          {/* Vertical connector */}
-          <mesh position={[-0.18, 0, 0]}>
-            <cylinderGeometry args={[0.05, 0.05, 0.6, 16]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-        </group>
-
-        {/* Right Handle */}
-        <group position={[0.7, 0, 0]}>
-          {/* Upper curve */}
-          <mesh position={[0, 0.3, 0]} rotation={[0, 0, -Math.PI * 0.75]}>
-            <torusGeometry args={[0.25, 0.05, 16, 32, Math.PI * 0.6]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-          {/* Lower curve */}
-          <mesh position={[0, -0.3, 0]} rotation={[0, 0, Math.PI * 0.75]}>
-            <torusGeometry args={[0.25, 0.05, 16, 32, Math.PI * 0.6]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-          {/* Vertical connector */}
-          <mesh position={[0.18, 0, 0]}>
-            <cylinderGeometry args={[0.05, 0.05, 0.6, 16]} />
-            <meshStandardMaterial color="#ffd700" metalness={0.8} roughness={0.2} />
-          </mesh>
-        </group>
-      </group>
-
-      {/* Top Decoration */}
-      <mesh position={[0, 2, 0]}>
-        <sphereGeometry args={[0.2, 32, 32]} />
-        <meshStandardMaterial color="#ffd700" metalness={0.9} roughness={0.1} />
-      </mesh>
-    </group>
-  );
-}
-
 const Awards: React.FC = () => {
   return (
     <AwardsSection>
@@ -199,16 +117,9 @@ const Awards: React.FC = () => {
         <Title>Our Achievements</Title>
         <AwardsGrid>
           <AwardCard>
-            <ModelContainer>
-              <Canvas camera={{ position: [0, 0, 7], fov: 40 }}>
-                <ambientLight intensity={0.7} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} />
-                <Trophy position={[0, -0.3, 0]} rotation={[0.1, 0, 0]} />
-                <Environment preset="sunset" />
-                <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={3} />
-              </Canvas>
-            </ModelContainer>
+            <ImageContainer>
+              <img src={goldenLaurel} alt="Top DSA Award" />
+            </ImageContainer>
             <AwardTitle>
               Top DSA - HDFC Bank
               <br />
@@ -219,16 +130,9 @@ const Awards: React.FC = () => {
           </AwardCard>
 
           <AwardCard>
-            <ModelContainer>
-              <Canvas camera={{ position: [0, 0, 7], fov: 40 }}>
-                <ambientLight intensity={0.7} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} />
-                <Trophy position={[0, -0.3, 0]} rotation={[0.1, Math.PI / 4, 0]} />
-                <Environment preset="sunset" />
-                <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={3} />
-              </Canvas>
-            </ModelContainer>
+            <ImageContainer>
+              <img src={goldenLaurel} alt="Elite Partner Award" />
+            </ImageContainer>
             <AwardTitle>
               Elite Partner
               <br />
