@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, Layout } from 'antd';
+import React, { useState } from 'react';
+import { Menu, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import styled from 'styled-components';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import ebsLogo from './ebslogo.jpg';
-
-const { Header } = Layout;
+import { DownOutlined } from '@ant-design/icons';
+import ebsLogo from './EBS logo.png';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -13,194 +12,112 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 30px 0;
-  transition: all 0.3s ease;
-  background: transparent;
-  backdrop-filter: none;
+  background: white;
+  padding: 0;
 `;
 
-const NavbarContainer = styled.div<{ $scrolled: boolean }>`
-  background: linear-gradient(135deg, #0094d9 0%, #0077b6 100%);
-  border-radius: 35px;
-  box-shadow: 0 4px 20px rgba(0, 148, 217, 0.15);
-  width: 75%;
+const NavbarContainer = styled.div`
+  max-width: 1400px;
   margin: 0 auto;
   height: 70px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-  
-  ${props => props.$scrolled && `
-    box-shadow: 0 4px 30px rgba(0, 148, 217, 0.2);
-    backdrop-filter: blur(15px);
-  `}
-`;
-
-const NavContainer = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 28px;
+  justify-content: space-between;
+  padding: 0 24px;
 `;
 
 const LogoContainer = styled.div`
-  height: 42px;
-  margin-right: 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  height: 100%;
+
+  img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+  }
+`;
+
+const NavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 0 48px;
+`;
+
+const NavLink = styled(Link)<{ $active?: boolean }>`
+  color: ${props => props.$active ? '#111' : '#666'};
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
   position: relative;
-  padding-right: 40px;
-  cursor: pointer;
-  
+
+  &:hover {
+    color: #111;
+  }
+
   &::after {
     content: '';
     position: absolute;
-    right: 0;
-    height: 28px;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.2);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #111;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
   }
+
+  &:hover::after,
+  ${props => props.$active && `
+    &::after {
+      transform: scaleX(1);
+    }
+  `}
 `;
 
-const LogoImage = styled.img`
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-`;
-
-const CompanyName = styled.div`
+const ActionButtons = styled.div`
   display: flex;
   align-items: center;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
+  gap: 16px;
+`;
 
-  .company-bold {
-    font-weight: 600;
-    margin-left: 6px;
+const AboutUsButton = styled(Button)`
+  background: #000;
+  color: white;
+  border: none;
+  height: 38px;
+  padding: 0 24px;
+  border-radius: 6px;
+  font-weight: 500;
+
+  &:hover {
+    background: #333 !important;
+    color: white !important;
   }
 `;
 
-const StyledMenu = styled(Menu)`
-  background: transparent;
-  border-bottom: none;
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  line-height: 70px;
-  
-  &.ant-menu-horizontal {
-    border-bottom: none;
-    background: transparent;
-  }
+const DropdownMenu = styled(Menu)`
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
 
-  .ant-menu-item,
-  .ant-menu-submenu {
-    color: rgba(255, 255, 255, 0.95) !important;
-    margin: 0 10px !important;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0 6px;
-    
-    &:hover {
-      color: #ffffff !important;
-      transform: translateY(-1px);
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
-    &::after {
-      display: none !important;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #ffffff;
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-      border-radius: 2px;
-    }
-
-    &:hover::before {
-      transform: scaleX(1);
-    }
-  }
-
-  .ant-menu-submenu-title {
-    color: rgba(255, 255, 255, 0.95) !important;
-    display: flex;
-    align-items: center;
-  }
-
-  .ant-menu-item-selected {
-    background-color: transparent !important;
-    &::before {
-      transform: scaleX(1);
-    }
-  }
-
-  .ant-menu-submenu-popup {
-    .ant-menu {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 8px 0;
-    }
-
-    .ant-menu-item {
-      color: #333 !important;
-      margin: 4px 8px !important;
-      padding: 0 16px;
-      border-radius: 12px;
-      height: 40px;
-      line-height: 40px;
-
-      &:hover {
-        color: #0094d9 !important;
-        background: rgba(0, 148, 217, 0.08);
-        transform: translateX(4px);
-        text-shadow: none;
-      }
-
-      &::before {
-        display: none;
-      }
-    }
+  .ant-dropdown-menu-item {
+    padding: 8px 16px;
+    border-radius: 6px;
   }
 `;
 
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
 
   const handleHomeClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -212,69 +129,99 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const menuItems: MenuProps['items'] = [
-    {
-      label: <Link to="/" onClick={handleHomeClick}>Home</Link>,
-      key: 'home',
-    },
-    {
-      label: 'Credit Cards',
-      key: 'creditCards',
-      children: [
-        { label: <Link to="/services/credit-cards">IDFC Bank Credit Card</Link>, key: 'idfc' },
-        { label: <Link to="/services/credit-cards">AU Bank Credit Card</Link>, key: 'au' },
-        { label: <Link to="/services/credit-cards">Yes Bank Credit Card</Link>, key: 'yes' },
-        { label: <Link to="/services/credit-cards">Axis Bank Credit Card</Link>, key: 'axis' },
-        { label: <Link to="/services/credit-cards">Indusind Credit Card</Link>, key: 'indusind' },
-        { label: <Link to="/services/credit-cards">HDFC Credit Card</Link>, key: 'hdfc' },
-        { label: <Link to="/services/credit-cards">ICICI Bank Credit Card</Link>, key: 'icici' },
-      ],
-    },
-    {
-      label: 'Loans',
-      key: 'loans',
-      children: [
-        { label: <Link to="/services/personal-loan">Personal Loans</Link>, key: 'personal' },
-        { label: <Link to="/services/business-loan">Business Loan</Link>, key: 'business' },
-        { label: <Link to="/services/home-loan">Home Loan</Link>, key: 'home' },
-        { label: <Link to="/services/home-loan-balance-transfer">Home Loan Balance Transfer</Link>, key: 'transfer' },
-        { label: <Link to="/services/loan-against-property">Loan Against Property</Link>, key: 'lap' },
-        { label: <Link to="/services/gold-loan">Gold Loan</Link>, key: 'gold' },
-      ],
-    },
-    {
-      label: 'Insurance',
-      key: 'insurance',
-      children: [
-        { label: <Link to="/services/health-insurance">Health Insurance</Link>, key: 'health' },
-        { label: <Link to="/services/life-insurance">Life Insurance</Link>, key: 'life' },
-      ],
-    },
-    {
-      label: <Link to="/about">About Us</Link>,
-      key: 'about',
-    },
-  ];
+  const cardsMenu = (
+    <DropdownMenu>
+      <Menu.Item key="axis">
+        <Link to="/axis-bank-credit-card">Axis Bank Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="hdfc">
+        <Link to="/hdfc-credit-card">HDFC Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="idfc">
+        <Link to="/idfc-bank-credit-card">IDFC Bank Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="au">
+        <Link to="/au-bank-credit-card">AU Bank Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="icici">
+        <Link to="/icici-bank-credit-card">ICICI Bank Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="yes">
+        <Link to="/yes-bank-credit-card">Yes Bank Credit Card</Link>
+      </Menu.Item>
+      <Menu.Item key="indusind">
+        <Link to="/indusind-credit-card">Indusind Credit Card</Link>
+      </Menu.Item>
+    </DropdownMenu>
+  );
+
+  const loansMenu = (
+    <DropdownMenu>
+      <Menu.Item key="personal">
+        <Link to="/personal-loan">Personal Loans</Link>
+      </Menu.Item>
+      <Menu.Item key="business">
+        <Link to="/business-loan">Business Loan</Link>
+      </Menu.Item>
+      <Menu.Item key="home">
+        <Link to="/home-loan">Home Loan</Link>
+      </Menu.Item>
+      <Menu.Item key="transfer">
+        <Link to="/home-loan-balance-transfer">Home Loan Balance Transfer</Link>
+      </Menu.Item>
+      <Menu.Item key="lap">
+        <Link to="/loan-against-property">Loan Against Property</Link>
+      </Menu.Item>
+      <Menu.Item key="gold">
+        <Link to="/gold-loan">Gold Loan</Link>
+      </Menu.Item>
+    </DropdownMenu>
+  );
+
+  const insuranceMenu = (
+    <DropdownMenu>
+      <Menu.Item key="health">
+        <Link to="/health-insurance">Health Insurance</Link>
+      </Menu.Item>
+      <Menu.Item key="life">
+        <Link to="/life-insurance">Life Insurance</Link>
+      </Menu.Item>
+    </DropdownMenu>
+  );
 
   return (
     <StyledHeader>
-      <NavbarContainer $scrolled={scrolled}>
-        <NavContainer>
-          <Link to="/" onClick={handleHomeClick}>
-            <LogoContainer>
-              <LogoImage src={ebsLogo} alt="EBS Logo" />
-              <CompanyName>
-                Everyday Banking<span className="company-bold">Solutions</span>
-              </CompanyName>
-            </LogoContainer>
-          </Link>
-          <StyledMenu
-            mode="horizontal"
-            items={menuItems}
-            theme="dark"
-            disabledOverflow={true}
-          />
-        </NavContainer>
+      <NavbarContainer>
+        <Link to="/" onClick={handleHomeClick}>
+          <LogoContainer>
+            <img src={ebsLogo} alt="EBS Finance" />
+          </LogoContainer>
+        </Link>
+
+        <NavLinks>
+          <NavLink to="/" onClick={handleHomeClick} $active={location.pathname === '/'}>
+            Home
+          </NavLink>
+          <Dropdown overlay={cardsMenu} trigger={['hover']}>
+            <NavLink to="#" $active={location.pathname.includes('cards')}>
+              Cards <DownOutlined style={{ fontSize: 8 }} />
+            </NavLink>
+          </Dropdown>
+          <Dropdown overlay={loansMenu} trigger={['hover']}>
+            <NavLink to="#" $active={location.pathname.includes('loan')}>
+              Loans <DownOutlined style={{ fontSize: 8 }} />
+            </NavLink>
+          </Dropdown>
+          <Dropdown overlay={insuranceMenu} trigger={['hover']}>
+            <NavLink to="#" $active={location.pathname.includes('insurance')}>
+              Insurance <DownOutlined style={{ fontSize: 8 }} />
+            </NavLink>
+          </Dropdown>
+        </NavLinks>
+
+        <ActionButtons>
+          <AboutUsButton>About Us</AboutUsButton>
+        </ActionButtons>
       </NavbarContainer>
     </StyledHeader>
   );
