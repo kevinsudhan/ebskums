@@ -18,6 +18,7 @@ import HomeLoan from './pages/HomeLoan/HomeLoan';
 import GoldLoan from './pages/GoldLoan/GoldLoan';
 import HomeLoanBalanceTransfer from './pages/HomeLoanBalanceTransfer/HomeLoanBalanceTransfer';
 import LoanAgainstProperty from './pages/LoanAgainstProperty/LoanAgainstProperty';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -59,6 +60,7 @@ const App: React.FC = () => {
             <Route path="/services/gold-loan" element={<GoldLoan />} />
             <Route path="/services/home-loan-balance-transfer" element={<HomeLoanBalanceTransfer />} />
             <Route path="/services/loan-against-property" element={<LoanAgainstProperty />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </MainContent>
       </AppContainer>
