@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1000;]
   background: white;
   padding: 0;
 `;
@@ -148,31 +148,33 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const cardsMenu = (
-    <DropdownMenu>
-      <Menu.Item key="axis">
-        <Link to="/axis-bank-credit-card">Axis Bank Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="hdfc">
-        <Link to="/hdfc-credit-card">HDFC Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="idfc">
-        <Link to="/idfc-bank-credit-card">IDFC Bank Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="au">
-        <Link to="/au-bank-credit-card">AU Bank Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="icici">
-        <Link to="/icici-bank-credit-card">ICICI Bank Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="yes">
-        <Link to="/yes-bank-credit-card">Yes Bank Credit Card</Link>
-      </Menu.Item>
-      <Menu.Item key="indusind">
-        <Link to="/indusind-credit-card">Indusind Credit Card</Link>
-      </Menu.Item>
-    </DropdownMenu>
-  );
+  const cardItems: MenuProps['items'] = [
+    {
+      key: 'au-bank',
+      label: <Link to="/cards/au-bank">AU Bank Credit Cards</Link>,
+    },
+    {
+      key: 'axis-bank',
+      label: <Link to="/cards/axis-bank">Axis Bank Credit Cards</Link>,
+    },
+    {
+      key: 'hdfc-bank',
+      label: <Link to="/cards/hdfc-bank">HDFC Bank Credit Cards</Link>,
+    },
+    {
+      key: 'icici-bank',
+      label: <Link to="/cards/icici-bank">ICICI Bank Credit Cards</Link>,
+    },
+    {
+      key: 'idfc-bank',
+      label: <Link to="/cards/idfc-bank">IDFC Bank Credit Cards</Link>,
+    },
+    {
+      key: 'yes-bank',
+      label: <Link to="/cards/yes-bank">Yes Bank Credit Cards</Link>,
+    },
+  ];
+
 
   const loansMenu = (
     <DropdownMenu>
@@ -224,7 +226,7 @@ const Navbar: React.FC = () => {
           <NavLink to="/" onClick={handleHomeClick} $active={location.pathname === '/'}>
             Home
           </NavLink>
-          <Dropdown overlay={cardsMenu} trigger={['hover']}>
+          <Dropdown overlay={<Menu items={cardItems} />} placement="bottom">
             <NavLink to="/credit-cards" $active={location.pathname.includes('credit-cards')}>
               Cards <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>

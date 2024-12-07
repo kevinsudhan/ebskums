@@ -9,7 +9,6 @@ import axisCard from '../../assets/images/cards/AXIS.png';
 import hdfcCard from '../../assets/images/cards/HDFC.png';
 import iciciCard from '../../assets/images/cards/ICICI.png';
 import idfcCard from '../../assets/images/cards/IDFC.png';
-import indusindCard from '../../assets/images/cards/INDUSIND.png';
 import yesbankCard from '../../assets/images/cards/YESBANK.png';
 import { typography, colors, effects, spacing, breakpoints } from '../../styles/theme';
 import CardScroller from '../../components/CardScroller/CardScroller';
@@ -822,7 +821,6 @@ const Loans: React.FC = () => {
     { src: hdfcCard, alt: "HDFC Bank Credit Card" },
     { src: iciciCard, alt: "ICICI Bank Credit Card" },
     { src: idfcCard, alt: "IDFC Bank Credit Card" },
-    { src: indusindCard, alt: "IndusInd Bank Credit Card" },
     { src: yesbankCard, alt: "Yes Bank Credit Card" },
   ];
 
@@ -1016,7 +1014,6 @@ const Loans: React.FC = () => {
             hdfcCard,
             iciciCard,
             idfcCard,
-            indusindCard,
             yesbankCard
           ]} />
         </section>
