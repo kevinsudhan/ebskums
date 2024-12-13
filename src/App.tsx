@@ -21,6 +21,7 @@ import HDFCCreditCard from './pages/Cards/HDFCCreditCard';
 import ICICICreditCard from './pages/Cards/ICICICreditCard';
 import IDFCCreditCard from './pages/Cards/IDFCCreditCard';
 import YesBankCreditCard from './pages/Cards/YesBankCreditCard';
+import Insurance from './pages/Insurance/Insurance';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -62,6 +63,7 @@ const App: React.FC = () => {
             <Route path="/short-term-loan" element={<ShortTermLoan />} />
             
             {/* Insurance Routes */}
+            <Route path="/insurance" element={<Insurance />} />
             <Route path="/health-insurance" element={<HealthInsurance />} />
             <Route path="/life-insurance" element={<LifeInsurance />} />
             

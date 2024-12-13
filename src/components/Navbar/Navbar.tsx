@@ -11,8 +11,8 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;]
-  background: white;
+  z-index: 1000;
+  background-color: white;
   padding: 0;
 `;
 
@@ -237,7 +237,7 @@ const Navbar: React.FC = () => {
             </NavLink>
           </Dropdown>
           <Dropdown overlay={insuranceMenu} trigger={['hover']}>
-            <NavLink to="#" $active={location.pathname.includes('insurance')}>
+            <NavLink to="/insurance" $active={location.pathname.includes('insurance')}>
               Insurance <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
