@@ -12,11 +12,17 @@ const HomeContainer = styled.div`
   background-color: #ffffff;
 `;
 
+const ServicesWrapper = styled.div`
+  margin-top: 60px;
+`;
+
 const Home: React.FC = () => {
   return (
     <HomeContainer>
       <Hero />
-      <Services />
+      <ServicesWrapper>
+        <Services />
+      </ServicesWrapper>
       <Metrics />
       <Awards />
       <Partners />

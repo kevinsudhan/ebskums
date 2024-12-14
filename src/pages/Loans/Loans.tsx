@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Form, Input, Select, Button, Card, Rate, Tag, Typography } from 'antd';
-import { CreditCardOutlined, CheckCircleFilled, StarFilled, LeftOutlined, RightOutlined, Star, SafetyCertificateOutlined, GiftOutlined } from '@ant-design/icons';
-import creditCardImg from '../../assets/images/services/credit-card.jpg';
-import creditCardHeroImg from '../../assets/images/hero/creditcard.png';
-import auCard from '../../assets/images/cards/AU.png';
-import axisCard from '../../assets/images/cards/AXIS.png';
-import hdfcCard from '../../assets/images/cards/HDFC.png';
-import iciciCard from '../../assets/images/cards/ICICI.png';
-import idfcCard from '../../assets/images/cards/IDFC.png';
-import yesbankCard from '../../assets/images/cards/YESBANK.png';
+import { Link } from 'react-router-dom';
+import { Card, Row, Col, Typography, Form, Input, Select, Button } from 'antd';
+import { BankOutlined, SafetyOutlined, DollarOutlined, HomeOutlined, CalculatorOutlined, RiseOutlined, CheckCircleFilled, UserOutlined, ShopOutlined, SwapOutlined, GoldOutlined } from '@ant-design/icons';
 import { typography, colors, effects, spacing, breakpoints } from '../../styles/theme';
-import CardScroller from '../../components/CardScroller/CardScroller';
 import Footer from '../../components/Footer/Footer';
 
 const { Title, Text } = Typography;
@@ -34,19 +26,6 @@ const HeroSection = styled.section`
   padding-top: 100px;
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url(${creditCardImg}) no-repeat center center;
-    background-size: cover;
-    opacity: 0.1;
-    z-index: 0;
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -59,7 +38,42 @@ const HeroSection = styled.section`
     z-index: 1;
   }
 
-  /* Modern geometric shapes */
+  /* Animated lines */
+  .line-1, .line-2 {
+    position: absolute;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    z-index: 2;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .line-1 {
+    top: 20%;
+    right: 10%;
+    animation: moveLine 8s linear infinite;
+  }
+
+  .line-2 {
+    bottom: 30%;
+    left: 5%;
+    animation: moveLine 12s linear infinite reverse;
+  }
+
+  /* Dot grid pattern */
+  .dot-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 2;
+    opacity: 0.7;
+  }
+
   .shape-1, .shape-2, .shape-3, .shape-4 {
     position: absolute;
     border-radius: 50%;
@@ -101,42 +115,6 @@ const HeroSection = styled.section`
     animation: float 12s ease-in-out infinite 0.5s;
   }
 
-  /* Animated lines */
-  .line-1, .line-2 {
-    position: absolute;
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    z-index: 2;
-    transform: rotate(-45deg);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-
-  .line-1 {
-    top: 20%;
-    right: 10%;
-    animation: moveLine 8s linear infinite;
-  }
-
-  .line-2 {
-    bottom: 30%;
-    left: 5%;
-    animation: moveLine 12s linear infinite reverse;
-  }
-
-  /* Dot grid pattern */
-  .dot-pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: 2;
-    opacity: 0.7;
-  }
-
   @keyframes float {
     0%, 100% {
       transform: translateY(0) rotate(0deg);
@@ -154,17 +132,6 @@ const HeroSection = styled.section`
       transform: translateX(100%) rotate(-45deg);
     }
   }
-
-  > * {
-    position: relative;
-    z-index: 3;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    gap: 30px;
-    padding: 100px 5% 40px;
-  }
 `;
 
 const HeroContent = styled.div`
@@ -172,7 +139,8 @@ const HeroContent = styled.div`
   max-width: 600px;
   color: ${colors.text.white};
   padding: 20px 40px;
-  animation: fadeInUp 0.8s ease-out;
+  position: relative;
+  z-index: 2;
 
   h1 {
     font-family: ${typography.fontFamily.heading};
@@ -180,26 +148,14 @@ const HeroContent = styled.div`
     font-weight: ${typography.fontWeight.bold};
     line-height: ${typography.lineHeight.tight};
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #ffffff, #e0e0e0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-    @media (max-width: 768px) {
-      font-size: ${typography.fontSize.h1.tablet};
-    }
+    color: white;
   }
 
   p {
     font-family: ${typography.fontFamily.primary};
     font-size: ${typography.fontSize.hero.subtitle};
     line-height: ${typography.lineHeight.relaxed};
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5rem;
-
-    @media (max-width: 768px) {
-      font-size: ${typography.fontSize.body.large};
-    }
   }
 
   .feature-tags {
@@ -207,21 +163,6 @@ const HeroContent = styled.div`
     gap: 15px;
     flex-wrap: wrap;
     margin-top: 1.5rem;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 20px;
-    text-align: center;
-
-    h1 {
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-    }
-    .feature-tags {
-      justify-content: center;
-    }
   }
 `;
 
@@ -232,6 +173,9 @@ const HeroImage = styled.div`
   justify-content: center;
   align-items: center;
   animation: floatAnimation 3s ease-in-out infinite;
+  opacity: 1;
+  z-index: 2;
+  position: relative;
 
   @keyframes floatAnimation {
     0% {
@@ -248,9 +192,10 @@ const HeroImage = styled.div`
   img {
     max-width: 90%;
     height: auto;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2)) brightness(1.2) contrast(1.1);
     transform: perspective(1000px) rotateY(-15deg);
     transition: transform 0.3s ease;
+    opacity: 1;
 
     &:hover {
       transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
@@ -271,177 +216,291 @@ const HeroImage = styled.div`
   }
 `;
 
-const FloatingElement = styled.div`
-  position: absolute;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-`;
+const FeatureTag = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 
-const FloatingElements = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: 1;
-
-  ${FloatingElement}:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: -50px;
-    left: -100px;
-    animation: float 15s infinite linear;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 
-  ${FloatingElement}:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    top: 30%;
-    right: -50px;
-    animation: float 12s infinite linear reverse;
-  }
-
-  ${FloatingElement}:nth-child(3) {
-    width: 150px;
-    height: 150px;
-    bottom: 10%;
-    left: 20%;
-    animation: float 10s infinite linear;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    50% {
-      transform: translate(30px, 20px) rotate(180deg);
-    }
-    100% {
-      transform: translate(0, 0) rotate(360deg);
-    }
+  .anticon {
+    font-size: 1rem;
   }
 `;
 
-const ContentSection = styled.section`
-  padding: 60px 5%;
-  max-width: 1400px;
-  margin: 0 auto;
-`;
-
-const PartnersSection = styled.section`
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  background: ${colors.background.primary};
-  padding: 40px 0;
-  overflow: hidden;
+const LoanTypesSection = styled.section`
+  padding: 60px 4%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-`;
+  overflow: hidden;
 
-const PartnersTitleSection = styled.div`
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 0 20px;
-
-  h2 {
-    font-family: ${typography.fontFamily.heading};
-    font-size: ${typography.fontSize.h2.desktop};
-    font-weight: ${typography.fontWeight.bold};
-    color: ${colors.text.primary};
-    margin-bottom: 12px;
-    background: ${colors.primary.gradient};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  p {
-    font-family: ${typography.fontFamily.primary};
-    font-size: ${typography.fontSize.body.large};
-    color: ${colors.text.secondary};
-    line-height: ${typography.lineHeight.relaxed};
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    h2 {
-      font-size: ${typography.fontSize.h2.tablet};
-    }
-    p {
-      font-size: ${typography.fontSize.body.regular};
-    }
-  }
-`;
-
-const MarqueeWrapper = styled.div`
-  position: relative;
-  
-  &::before,
-  &::after {
+  &:before {
     content: '';
     position: absolute;
     top: 0;
-    width: 200px;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  &::before {
     left: 0;
-    background: linear-gradient(to right, ${colors.background.primary}, transparent);
-  }
-
-  &::after {
     right: 0;
-    background: linear-gradient(to left, ${colors.background.primary}, transparent);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 119, 182, 0.2), transparent);
   }
-`;
 
-const MarqueeContainer = styled.div`
-  display: flex;
-  gap: 60px;
-  animation: scroll 35s linear infinite;
-  padding: 30px 0;
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
+  .section-title {
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+    font-size: 2.5rem;
+    color: ${colors.text.primary};
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
       transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: ${colors.primary.gradient};
+      border-radius: 2px;
     }
   }
 
-  &:hover {
-    animation-play-state: paused;
+  .ant-row {
+    max-width: 1200px;
+    width: 100%;
+    margin: -8px !important;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .ant-col {
+    padding: 8px !important;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 50px 3%;
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .ant-row {
+      margin: -6px !important;
+    }
+
+    .ant-col {
+      padding: 6px !important;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 40px 2%;
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+
+    .ant-row {
+      margin: -4px !important;
+    }
+
+    .ant-col {
+      padding: 4px !important;
+    }
   }
 `;
 
-const BankLogo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 200px;
-  height: 80px;
-  background: ${colors.background.white};
+const LoanCard = styled(Card)`
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  margin: 0 auto;
   border-radius: 16px;
-  padding: 16px 32px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: white;
+  position: relative;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+    .ant-card-cover .anticon {
+      transform: scale(1.1);
+      background: ${colors.primary.gradient};
+      color: white;
+    }
+  }
+
+  .ant-card-cover {
+    padding: 24px 20px 0;
+    background: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    .anticon {
+      font-size: 24px;
+      color: ${colors.primary.main};
+      background: ${colors.primary.light};
+      padding: 14px;
+      border-radius: 14px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 10px rgba(0, 119, 182, 0.1);
+    }
+  }
+
+  .ant-card-body {
+    padding: 20px;
+  }
+
+  .ant-card-meta-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: ${colors.text.primary};
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .ant-card-meta-description {
+    color: ${colors.text.secondary};
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .features-list {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+    .ant-typography {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      color: ${colors.text.secondary};
+      transition: color 0.3s ease;
+
+      &:before {
+        content: "→";
+        color: ${colors.primary.main};
+        font-size: 1rem;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: ${colors.primary.main};
+        
+        &:before {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 280px;
+
+    .ant-card-cover {
+      padding: 20px 16px 0;
+      
+      .anticon {
+        font-size: 22px;
+        padding: 12px;
+      }
+    }
+
+    .ant-card-body {
+      padding: 16px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 260px;
+    border-radius: 14px;
+
+    .ant-card-cover {
+      padding: 16px 14px 0;
+      
+      .anticon {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 12px;
+      }
+    }
+
+    .ant-card-body {
+      padding: 14px;
+    }
+  }
+`;
+
+const QuoteSection = styled.section`
+  padding: 80px 5%;
+  background: ${colors.background.light};
+`;
+
+const QuoteForm = styled(Form)`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: ${effects.shadow.medium};
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      color: ${colors.text.primary};
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: ${colors.text.secondary};
+    }
+  }
+
+  .ant-form-item {
+    margin-bottom: 24px;
+  }
+
+  .ant-input,
+  .ant-select-selector {
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid ${colors.border.main};
+  }
+
+  .ant-btn {
+    height: 45px;
+    font-weight: 600;
   }
 `;
 
@@ -623,16 +682,37 @@ const StyledForm = styled(Form)`
   .ant-select-selector {
     height: 45px !important;
     border-radius: 12px !important;
-    border: 2px solid rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
     padding: 0 16px !important;
     font-size: ${typography.fontSize.body.small} !important;
+    box-shadow: none !important;
+    outline: none !important;
 
-    &:hover {
-      border-color: rgba(33, 147, 176, 0.3) !important;
+    &:hover, &:focus {
+      border-color: ${colors.primary.start} !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    padding: 0 11px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+
+    &:hover, &:focus, &-focused {
+      border-color: ${colors.primary.start} !important;
+      box-shadow: none !important;
     }
 
-    &:focus {
-      border-color: ${colors.primary.start} !important;
+    .ant-input {
+      border: none !important;
+      padding: 0 8px !important;
+      
+      &:hover, &:focus {
+        border: none !important;
+        box-shadow: none !important;
+      }
     }
   }
 
@@ -677,180 +757,83 @@ const SubmitButton = styled(Button)`
   }
 `;
 
-const FeatureTag = styled(Tag)`
-  font-family: ${typography.fontFamily.primary};
-  font-size: ${typography.fontSize.tag.regular};
-  background: ${effects.glassmorphism.background} !important;
-  border: ${effects.glassmorphism.border} !important;
-  backdrop-filter: ${effects.glassmorphism.backdropFilter};
-  padding: 10px 20px !important;
-  border-radius: 20px !important;
-  color: white !important;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  
-  .anticon {
-    color: white !important;
-    font-size: 1.1rem;
-  }
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.25) !important;
-    transform: translateY(-2px);
-  }
-`;
-
-const creditCards = [
-  {
-    id: 1,
-    name: 'IRCTC RuPay Credit Card',
-    image: '/images/cards/irctc.png',
-    rating: 4.0,
-    reviews: 1250,
-    joiningFee: '₹500 + GST',
-    features: [
-      'Travel rewards on IRCTC bookings',
-      'Complimentary lounge access',
-      'Fuel surcharge waiver'
-    ],
-    categories: ['top', 'travel', 'rewards']
-  },
-  {
-    id: 2,
-    name: 'IDFC FIRST SWYP Credit Card',
-    image: '/images/cards/idfc.png',
-    rating: 5.0,
-    reviews: 850,
-    joiningFee: '₹499 + GST',
-    features: [
-      '1000 Reward Points on 1st EMI conversion',
-      'Zero forex markup',
-      'Movie ticket discounts'
-    ],
-    categories: ['top', 'movie', 'dining', 'shopping']
-  },
-  {
-    id: 3,
-    name: 'Axis Bank ACE Credit Card',
-    image: '/images/cards/ace.png',
-    rating: 4.5,
-    reviews: 2100,
-    joiningFee: 'NIL',
-    features: [
-      '5% cashback on bill payments',
-      'Welcome bonus 2000 points',
-      'Movie ticket BOGO offers'
-    ],
-    categories: ['top', 'movie', 'rewards', 'shopping']
-  },
-  {
-    id: 4,
-    name: 'HDFC Diners Club Black',
-    image: '/images/cards/diners.png',
-    rating: 4.8,
-    reviews: 3200,
-    joiningFee: '₹10000 + GST',
-    features: [
-      'Unlimited airport lounge access',
-      'Golf privileges',
-      '10X rewards on dining'
-    ],
-    categories: ['top', 'travel', 'dining', 'lounge']
-  }
-];
-
-const bankLogos = [
-  { src: '/images/partners/hdfc.jpg', name: 'HDFC Bank' },
-  { src: '/images/partners/icici.jpg', name: 'ICICI Bank' },
-  { src: '/images/partners/axis.jpg.png', name: 'Axis Bank' },
-  { src: '/images/partners/kotak.jpg', name: 'Kotak Bank' },
-  { src: '/images/partners/idfc.jpg', name: 'IDFC Bank' },
-  { src: '/images/partners/yes.png', name: 'Yes Bank' },
-  { src: '/images/partners/au.jpg', name: 'AU Bank' },
-  { src: '/images/partners/federal.png', name: 'Federal Bank' }
-];
-
-const SectionTitle = styled.div`
-  text-align: center;
-  margin-bottom: ${spacing.xxl};
-  padding-top: ${spacing.xxl};
-
-  h2 {
-    font-family: ${typography.fontFamily.heading};
-    font-size: ${typography.fontSize.h2.desktop};
-    font-weight: ${typography.fontWeight.bold};
-    line-height: 1.2;
-    background: linear-gradient(135deg, #2193b0, #6dd5ed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: ${spacing.md};
-
-    @media (max-width: ${breakpoints.tablet}) {
-      font-size: ${typography.fontSize.h2.tablet};
-    }
-
-    @media (max-width: ${breakpoints.mobile}) {
-      font-size: ${typography.fontSize.h2.mobile};
-    }
-  }
-
-  p {
-    font-family: ${typography.fontFamily.primary};
-    font-size: ${typography.fontSize.body.large};
-    color: ${colors.text.secondary};
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: ${typography.lineHeight.relaxed};
-
-    @media (max-width: ${breakpoints.mobile}) {
-      font-size: ${typography.fontSize.body.regular};
-    }
-  }
-`;
-
 const Loans: React.FC = () => {
-  const [form] = Form.useForm();
-  const [activeFilter, setActiveFilter] = useState('top');
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const cards = [
-    { src: auCard, alt: "AU Bank Credit Card" },
-    { src: axisCard, alt: "Axis Bank Credit Card" },
-    { src: hdfcCard, alt: "HDFC Bank Credit Card" },
-    { src: iciciCard, alt: "ICICI Bank Credit Card" },
-    { src: idfcCard, alt: "IDFC Bank Credit Card" },
-    { src: yesbankCard, alt: "Yes Bank Credit Card" },
-  ];
-
-  const filters = [
-    { id: 'top', label: 'Top Cards' },
-    { id: 'travel', label: 'Travel' },
-    { id: 'shopping', label: 'Shopping' },
-    { id: 'fuel', label: 'Fuel' },
-    { id: 'movie', label: 'Movie' },
-    { id: 'dining', label: 'Dining' },
-    { id: 'lounge', label: 'Lounge Access' },
-    { id: 'rewards', label: 'Rewards' }
-  ];
-
-  const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? cards.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex(prev => (prev === cards.length - 1 ? 0 : prev + 1));
-  };
-
-  const getVisibleCards = () => {
-    const visibleCards = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % cards.length;
-      visibleCards.push(cards[index]);
+  const loanTypes = [
+    {
+      title: "Personal Loans",
+      description: "Quick, collateral-free loans for your personal needs",
+      icon: <UserOutlined />,
+      link: "/personal-loan",
+      features: [
+        "Minimal documentation",
+        "Quick approval process",
+        "Flexible repayment options",
+        "Competitive interest rates"
+      ]
+    },
+    {
+      title: "Business Loan",
+      description: "Fuel your business growth with our tailored financing solutions",
+      icon: <ShopOutlined />,
+      link: "/business-loan",
+      features: [
+        "Working capital finance",
+        "Equipment financing",
+        "Business expansion loans",
+        "Flexible tenure options"
+      ]
+    },
+    {
+      title: "Home Loan",
+      description: "Make your dream home a reality with our affordable home loans",
+      icon: <HomeOutlined />,
+      link: "/home-loan",
+      features: [
+        "Attractive interest rates",
+        "Long repayment tenure",
+        "Quick loan processing",
+        "Transparent charges"
+      ]
+    },
+    {
+      title: "Home Loan Balance Transfer",
+      description: "Switch your existing home loan for better terms",
+      icon: <SwapOutlined />,
+      link: "/home-loan-balance-transfer",
+      features: [
+        "Lower interest rates",
+        "Top-up loan facility",
+        "Minimal transfer charges",
+        "Hassle-free process"
+      ]
+    },
+    {
+      title: "Loan Against Property",
+      description: "Unlock the value of your property with secured loans",
+      icon: <BankOutlined />,
+      link: "/loan-against-property",
+      features: [
+        "High loan amount",
+        "Lower interest rates",
+        "Longer repayment period",
+        "Multiple property types accepted"
+      ]
+    },
+    {
+      title: "Gold Loan",
+      description: "Get instant loans against your gold jewelry",
+      icon: <GoldOutlined />,
+      link: "/gold-loan",
+      features: [
+        "Quick disbursement",
+        "High value assessment",
+        "Safe gold storage",
+        "Flexible repayment options"
+      ]
     }
-    return visibleCards;
-  };
+  ];
+
+  const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
     console.log('Form values:', values);
@@ -859,165 +842,183 @@ const Loans: React.FC = () => {
   return (
     <PageContainer>
       <HeroSection>
-        <div className="shape-1"></div>
-        <div className="shape-2"></div>
-        <div className="shape-3"></div>
-        <div className="shape-4"></div>
-        <div className="line-1"></div>
-        <div className="line-2"></div>
-        <div className="dot-pattern"></div>
+        <div className="shape-1" />
+        <div className="shape-2" />
+        <div className="shape-3" />
+        <div className="shape-4" />
+        <div className="line-1" />
+        <div className="line-2" />
+        <div className="dot-pattern" />
+        
         <HeroContent>
-          <Title level={1}>
-            Transform Your Spending with Premium Credit Cards
-          </Title>
-          <Text style={{ color: 'white', fontSize: '1.2rem', display: 'block', marginBottom: '1.5rem' }}>
-            Discover exclusive rewards, cashback, and privileges. Apply now and elevate your financial journey with EBS Finance.
-          </Text>
+          <h1>Unlock Your Financial Potential with EBS Loans</h1>
+          <p>
+            Experience hassle-free borrowing with competitive interest rates and flexible repayment options. 
+            Our expert financial advisors are here to help you choose the right loan solution.
+          </p>
           <div className="feature-tags">
-            <FeatureTag icon={<StarFilled />}>
-              Instant Approval
+            <FeatureTag>
+              <DollarOutlined /> Quick Approval
             </FeatureTag>
-            <FeatureTag icon={<CheckCircleFilled />}>
-              Zero Annual Fee*
+            <FeatureTag>
+              <SafetyOutlined /> 100% Secure
             </FeatureTag>
-            <FeatureTag icon={<CreditCardOutlined />}>
-              5% Cashback
+            <FeatureTag>
+              <RiseOutlined /> Low Interest
             </FeatureTag>
           </div>
         </HeroContent>
         <HeroImage>
-          <img src={creditCardHeroImg} alt="Premium Credit Cards" />
+          <img src="/src/assets/images/hero/loan-main-hero.png" alt="Loan Services" />
         </HeroImage>
       </HeroSection>
 
-      <ContentSection>
-        <PartnersSection>
-          <PartnersTitleSection>
-            <h2>Our Banking Partners</h2>
-            <p>We collaborate with India's leading banks to bring you exclusive credit card offers with unmatched benefits</p>
-          </PartnersTitleSection>
-          
-          <MarqueeWrapper>
-            <MarqueeContainer>
-              {[...Array(2)].map((_, setIndex) => (
-                <React.Fragment key={setIndex}>
-                  {bankLogos.map((logo, index) => (
-                    <BankLogo key={`${setIndex}-${index}`}>
-                      <img src={logo.src} alt={logo.name} />
-                    </BankLogo>
-                  ))}
-                </React.Fragment>
-              ))}
-            </MarqueeContainer>
-          </MarqueeWrapper>
-        </PartnersSection>
-
-        <ApplicationSection>
-          <ApplicationContainer>
-            <FormLeftSection>
-              <h3>Why Choose Our Credit Cards?</h3>
-              <p>Experience a world of exclusive benefits and rewards with our premium credit card offerings.</p>
-              <ul className="benefits">
-                <li>
-                  <CheckCircleFilled /> Instant approval with minimal documentation
-                </li>
-                <li>
-                  <CheckCircleFilled /> Up to 5% cashback on all your purchases
-                </li>
-                <li>
-                  <CheckCircleFilled /> Complimentary airport lounge access
-                </li>
-                <li>
-                  <CheckCircleFilled /> Zero annual fee for the first year
-                </li>
-                <li>
-                  <CheckCircleFilled /> 24/7 concierge services
-                </li>
-                <li>
-                  <CheckCircleFilled /> Comprehensive fraud protection
-                </li>
-              </ul>
-            </FormLeftSection>
-
-            <FormContainer>
-              <StyledForm
-                form={form}
-                layout="vertical"
-                onFinish={onFinish}
-              >
-                <div className="form-header">
-                  <h3>Get Started Today</h3>
-                  <p>Fill in your details below and we'll process your application instantly</p>
-                </div>
-
-                <Form.Item
-                  label="Full Name"
-                  name="fullName"
-                  rules={[{ required: true, message: 'Please enter your full name' }]}
+      <LoanTypesSection>
+        <Title level={2} className="section-title">
+          Explore Our Loan Products
+        </Title>
+        <Row>
+          {loanTypes.map((loan, index) => (
+            <Col xs={20} sm={11} lg={7} key={index}>
+              <Link to={loan.link} style={{ width: '100%', display: 'block' }}>
+                <LoanCard
+                  hoverable
+                  cover={<div>{loan.icon}</div>}
                 >
-                  <Input placeholder="Enter your full name" size="large" />
-                </Form.Item>
-
-                <Form.Item
-                  label="Mobile Number"
-                  name="mobile"
-                  rules={[
-                    { required: true, message: 'Please enter your mobile number' },
-                    { pattern: /^[0-9]{10}$/, message: 'Please enter a valid 10-digit mobile number' }
-                  ]}
-                >
-                  <Input 
-                    placeholder="Enter your 10-digit mobile number" 
-                    size="large"
-                    maxLength={10}
+                  <Card.Meta
+                    title={loan.title}
+                    description={loan.description}
                   />
-                </Form.Item>
+                  <div className="features-list">
+                    {loan.features.map((feature, idx) => (
+                      <Text key={idx}>
+                        {feature}
+                      </Text>
+                    ))}
+                  </div>
+                </LoanCard>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </LoanTypesSection>
 
-                <Form.Item
-                  label="Email Address"
-                  name="email"
-                  rules={[
-                    { required: true, message: 'Please enter your email' },
-                    { type: 'email', message: 'Please enter a valid email address' }
-                  ]}
-                >
-                  <Input placeholder="Enter your email address" size="large" />
-                </Form.Item>
+      
 
-                <Form.Item
-                  label="Employment Type"
-                  name="employmentType"
-                  rules={[{ required: true, message: 'Please select your employment type' }]}
-                >
-                  <Select placeholder="Select your employment type" size="large">
-                    <Option value="salaried">Salaried</Option>
-                    <Option value="self-employed">Self Employed</Option>
-                    <Option value="business">Business Owner</Option>
-                    <Option value="professional">Professional</Option>
-                  </Select>
-                </Form.Item>
+      <ApplicationSection>
+        <ApplicationContainer>
+          <FormLeftSection>
+            <h3>Why Choose EBS Loans?</h3>
+            <p>Get quick and hassle-free loans with competitive interest rates tailored to your needs.</p>
+            <ul className="benefits">
+              <li>
+                <CheckCircleFilled /> Quick loan approval within 24 hours
+              </li>
+              <li>
+                <CheckCircleFilled /> Competitive interest rates starting at 8.99%
+              </li>
+              <li>
+                <CheckCircleFilled /> Flexible loan amounts up to ₹50 lakhs
+              </li>
+              <li>
+                <CheckCircleFilled /> Minimal documentation required
+              </li>
+              <li>
+                <CheckCircleFilled /> No hidden charges or processing fees
+              </li>
+              <li>
+                <CheckCircleFilled /> Dedicated loan relationship manager
+              </li>
+            </ul>
+          </FormLeftSection>
 
-                <Form.Item>
-                  <SubmitButton type="primary" htmlType="submit" block size="large">
-                    Submit Application
-                  </SubmitButton>
-                </Form.Item>
-              </StyledForm>
-            </FormContainer>
-          </ApplicationContainer>
-        </ApplicationSection>
+          <FormContainer>
+            <StyledForm
+              form={form}
+              layout="vertical"
+              onFinish={onFinish}
+            >
+              <div className="form-header">
+                <h3>Apply for a Loan</h3>
+                <p>Fill in your details and get instant loan approval</p>
+              </div>
 
-        <section>
-          <CardScroller images={[
-            auCard,
-            axisCard,
-            hdfcCard,
-            iciciCard,
-            idfcCard,
-            yesbankCard
-          ]} />
-        </section>
-      </ContentSection>
+              <Form.Item
+                label="Loan Type"
+                name="loanType"
+                rules={[{ required: true, message: 'Please select loan type' }]}
+              >
+                <Select placeholder="Select loan type" size="large">
+                  <Option value="personal">Personal Loan</Option>
+                  <Option value="home">Home Loan</Option>
+                  <Option value="business">Business Loan</Option>
+                  <Option value="education">Education Loan</Option>
+                  <Option value="vehicle">Vehicle Loan</Option>
+                </Select>
+              </Form.Item>
+
+              <Form.Item
+                label="Loan Amount"
+                name="loanAmount"
+                rules={[{ required: true, message: 'Please enter loan amount' }]}
+              >
+                <Input 
+                  placeholder="Enter loan amount" 
+                  size="large"
+                  prefix="₹"
+                />
+              </Form.Item>
+
+              <Form.Item
+                label="Monthly Income"
+                name="monthlyIncome"
+                rules={[{ required: true, message: 'Please enter your monthly income' }]}
+              >
+                <Input 
+                  placeholder="Enter your monthly income" 
+                  size="large"
+                  prefix="₹"
+                />
+              </Form.Item>
+
+              <Form.Item
+                label="Employment Type"
+                name="employmentType"
+                rules={[{ required: true, message: 'Please select your employment type' }]}
+              >
+                <Select placeholder="Select your employment type" size="large">
+                  <Option value="salaried">Salaried</Option>
+                  <Option value="self-employed">Self Employed</Option>
+                  <Option value="business">Business Owner</Option>
+                  <Option value="professional">Professional</Option>
+                </Select>
+              </Form.Item>
+
+              <Form.Item
+                label="Mobile Number"
+                name="mobile"
+                rules={[
+                  { required: true, message: 'Please enter your mobile number' },
+                  { pattern: /^[0-9]{10}$/, message: 'Please enter a valid 10-digit mobile number' }
+                ]}
+              >
+                <Input 
+                  placeholder="Enter your 10-digit mobile number" 
+                  size="large"
+                  maxLength={10}
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <SubmitButton type="primary" htmlType="submit" block size="large">
+                  Check Loan Eligibility
+                </SubmitButton>
+              </Form.Item>
+            </StyledForm>
+          </FormContainer>
+        </ApplicationContainer>
+      </ApplicationSection>
+
       <Footer />
     </PageContainer>
   );

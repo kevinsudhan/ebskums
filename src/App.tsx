@@ -22,6 +22,7 @@ import ICICICreditCard from './pages/Cards/ICICICreditCard';
 import IDFCCreditCard from './pages/Cards/IDFCCreditCard';
 import YesBankCreditCard from './pages/Cards/YesBankCreditCard';
 import Insurance from './pages/Insurance/Insurance';
+import Loans from './pages/Loans/Loans';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -54,6 +55,7 @@ const App: React.FC = () => {
             <Route path="/cards/yes-bank" element={<YesBankCreditCard />} />
             
             {/* Loan Routes */}
+            <Route path="/loans" element={<Loans />} />
             <Route path="/personal-loan" element={<PersonalLoan />} />
             <Route path="/business-loan" element={<BusinessLoan />} />
             <Route path="/home-loan" element={<HomeLoan />} />

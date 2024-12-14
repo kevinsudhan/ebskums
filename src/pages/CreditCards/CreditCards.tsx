@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Form, Input, Select, Button, Card, Rate, Tag, Typography } from 'antd';
-import { CreditCardOutlined, CheckCircleFilled, StarFilled, LeftOutlined, RightOutlined, Star, SafetyCertificateOutlined, GiftOutlined } from '@ant-design/icons';
+import { Form, Input, Select, Button, Tag, Typography } from 'antd';
+import { CreditCardOutlined, CheckCircleFilled, StarFilled } from '@ant-design/icons';
 import creditCardImg from '../../assets/images/services/credit-card.jpg';
 import creditCardHeroImg from '../../assets/images/hero/creditcard.png';
 import auCard from '../../assets/images/cards/AU.png';
@@ -453,6 +453,7 @@ const ApplicationSection = styled.section`
   padding: 80px 0;
   display: flex;
   justify-content: center;
+  
 `;
 
 const ApplicationContainer = styled.div`
@@ -464,6 +465,7 @@ const ApplicationContainer = styled.div`
   background: ${colors.background.white};
   border-radius: 24px;
   overflow: hidden;
+  
 
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;

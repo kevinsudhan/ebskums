@@ -232,7 +232,7 @@ const Navbar: React.FC = () => {
             </NavLink>
           </Dropdown>
           <Dropdown overlay={loansMenu} trigger={['hover']}>
-            <NavLink to="#" $active={location.pathname.includes('loan')}>
+            <NavLink to="/loans" $active={location.pathname.includes('loan')}>
               Loans <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
