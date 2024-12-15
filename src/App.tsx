@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import Navbar from './components/Navbar/Navbar';
+
+// Main Pages
 import Home from './pages/Home/Home';
 import PersonalLoan from './pages/PersonalLoan/PersonalLoan';
 import CreditCards from './pages/CreditCards/CreditCards';
@@ -15,13 +17,30 @@ import GoldLoan from './pages/GoldLoan/GoldLoan';
 import HomeLoanBalanceTransfer from './pages/HomeLoanBalanceTransfer/HomeLoanBalanceTransfer';
 import LoanAgainstProperty from './pages/LoanAgainstProperty/LoanAgainstProperty';
 import AboutUs from './pages/AboutUs/AboutUs';
+import Insurance from './pages/Insurance/Insurance';
+import Loans from './pages/Loans/Loans';
+
+// Card Pages
 import AxisCreditCard from './pages/Cards/AxisCreditCard';
 import HDFCCreditCard from './pages/Cards/HDFCCreditCard';
 import ICICICreditCard from './pages/Cards/ICICICreditCard';
 import IDFCCreditCard from './pages/Cards/IDFCCreditCard';
 import YesBankCreditCard from './pages/Cards/YesBankCreditCard';
-import Insurance from './pages/Insurance/Insurance';
-import Loans from './pages/Loans/Loans';
+
+// Personal Loan Partner Pages
+import PLBankingPartners from './pages/PersonalLoan/PLBankingPartners';
+import PLNBFCPartners from './pages/PersonalLoan/PLNBFCPartners';
+import PLFintechPartners from './pages/PersonalLoan/PLFintechPartners';
+
+// Business Loan Partner Pages
+import BLBankingPartners from './pages/BusinessLoan/BLBankingPartners';
+import BLNBFCPartners from './pages/BusinessLoan/BLNBFCPartners';
+import BLFintechPartners from './pages/BusinessLoan/BLFintechPartners';
+
+// Loan Against Property Partner Pages
+import LAPBankingPartners from './pages/LoanAgainstProperty/LAPBankingPartners';
+import LAPNBFCPartners from './pages/LoanAgainstProperty/LAPNBFCPartners';
+import LAPFintechPartners from './pages/LoanAgainstProperty/LAPFintechPartners';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -54,20 +73,31 @@ const App: React.FC = () => {
             
             {/* Loan Routes */}
             <Route path="/loans" element={<Loans />} />
-            <Route path="/personal-loan" element={<PersonalLoan />} />
-            <Route path="/business-loan" element={<BusinessLoan />} />
-            <Route path="/home-loan" element={<HomeLoan />} />
-            <Route path="/home-loan-balance-transfer" element={<HomeLoanBalanceTransfer />} />
-            <Route path="/loan-against-property" element={<LoanAgainstProperty />} />
-            <Route path="/gold-loan" element={<GoldLoan />} />
-            <Route path="/short-term-loan" element={<ShortTermLoan />} />
             
-            {/* Insurance Routes */}
-            <Route path="/insurance" element={<Insurance />} />
-            <Route path="/health-insurance" element={<HealthInsurance />} />
-            <Route path="/life-insurance" element={<LifeInsurance />} />
+            {/* Personal Loan Routes */}
+            <Route path="/personal-loan" element={<PersonalLoan />} />
+            <Route path="/personal-loan/banking-partners" element={<PLBankingPartners />} />
+            <Route path="/personal-loan/nbfc-partners" element={<PLNBFCPartners />} />
+            <Route path="/personal-loan/fintech-partners" element={<PLFintechPartners />} />
+            
+            {/* Business Loan Routes */}
+            <Route path="/business-loan" element={<BusinessLoan />} />
+            <Route path="/business-loan/banking-partners" element={<BLBankingPartners />} />
+            <Route path="/business-loan/nbfc-partners" element={<BLNBFCPartners />} />
+            <Route path="/business-loan/fintech-partners" element={<BLFintechPartners />} />
+            
+            {/* Loan Against Property Routes */}
+            <Route path="/loan-against-property" element={<LoanAgainstProperty />} />
+            <Route path="/loan-against-property/banking-partners" element={<LAPBankingPartners />} />
+            <Route path="/loan-against-property/nbfc-partners" element={<LAPNBFCPartners />} />
+            <Route path="/loan-against-property/fintech-partners" element={<LAPFintechPartners />} />
             
             {/* Other Routes */}
+            <Route path="/home-loan" element={<HomeLoan />} />
+            <Route path="/home-loan-balance-transfer" element={<HomeLoanBalanceTransfer />} />
+            <Route path="/gold-loan" element={<GoldLoan />} />
+            <Route path="/health-insurance" element={<HealthInsurance />} />
+            <Route path="/life-insurance" element={<LifeInsurance />} />
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
         </MainContent>

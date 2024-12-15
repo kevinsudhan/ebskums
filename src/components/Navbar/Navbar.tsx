@@ -122,7 +122,7 @@ const AboutUsButton = styled(Button)`
 `;
 
 const DropdownMenu = styled(Menu)`
-  min-width: 200px;
+  min-width: 300px;
   padding: 8px;
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
@@ -131,6 +131,29 @@ const DropdownMenu = styled(Menu)`
   .ant-dropdown-menu-item {
     padding: 8px 16px;
     border-radius: 6px;
+  }
+
+  .ant-menu-submenu-title {
+    padding: 8px 16px;
+    font-weight: 500;
+  }
+
+  .ant-menu-sub {
+    padding: 4px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+
+  .ant-menu-item {
+    margin: 4px 0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+
+    &:hover {
+      background: #e9ecef;
+    }
   }
 `;
 
@@ -171,25 +194,75 @@ const Navbar: React.FC = () => {
     },
   ];
 
+  const loansMenu = {
+    personal: [
+      {
+        key: 'personal-banking',
+        label: <Link to="/personal-loan/banking-partners">Banking Partners</Link>,
+      },
+      {
+        key: 'personal-nbfc',
+        label: <Link to="/personal-loan/nbfc-partners">Non-Banking Financial Company Partners</Link>,
+      },
+      {
+        key: 'personal-fintech',
+        label: <Link to="/personal-loan/fintech-partners">Fintech Partners</Link>,
+      },
+    ],
+    business: [
+      {
+        key: 'business-banking',
+        label: <Link to="/business-loan/banking-partners">Banking Partners</Link>,
+      },
+      {
+        key: 'business-nbfc',
+        label: <Link to="/business-loan/nbfc-partners">Non-Banking Financial Company Partners</Link>,
+      },
+      {
+        key: 'business-fintech',
+        label: <Link to="/business-loan/fintech-partners">Fintech Partners</Link>,
+      },
+    ],
+    lap: [
+      {
+        key: 'lap-banking',
+        label: <Link to="/loan-against-property/banking-partners">Banking Partners</Link>,
+      },
+      {
+        key: 'lap-nbfc',
+        label: <Link to="/loan-against-property/nbfc-partners">Non-Banking Financial Company Partners</Link>,
+      },
+      {
+        key: 'lap-fintech',
+        label: <Link to="/loan-against-property/fintech-partners">Fintech Partners</Link>,
+      },
+    ],
+  };
 
-  const loansMenu = (
+  const loansDropdownMenu = (
     <DropdownMenu>
-      <Menu.Item key="personal">
-        <Link to="/personal-loan">Personal Loans</Link>
-      </Menu.Item>
-      <Menu.Item key="business">
-        <Link to="/business-loan">Business Loan</Link>
-      </Menu.Item>
-      <Menu.Item key="home">
+      <Menu.SubMenu key="personal" title="Personal Loans">
+        {loansMenu.personal.map(item => (
+          <Menu.Item key={item.key}>{item.label}</Menu.Item>
+        ))}
+      </Menu.SubMenu>
+      <Menu.SubMenu key="business" title="Business Loan">
+        {loansMenu.business.map(item => (
+          <Menu.Item key={item.key}>{item.label}</Menu.Item>
+        ))}
+      </Menu.SubMenu>
+      <Menu.SubMenu key="lap" title="Loan Against Property">
+        {loansMenu.lap.map(item => (
+          <Menu.Item key={item.key}>{item.label}</Menu.Item>
+        ))}
+      </Menu.SubMenu>
+      <Menu.Item key="home-loan">
         <Link to="/home-loan">Home Loan</Link>
       </Menu.Item>
-      <Menu.Item key="transfer">
+      <Menu.Item key="home-loan-balance-transfer">
         <Link to="/home-loan-balance-transfer">Home Loan Balance Transfer</Link>
       </Menu.Item>
-      <Menu.Item key="lap">
-        <Link to="/loan-against-property">Loan Against Property</Link>
-      </Menu.Item>
-      <Menu.Item key="gold">
+      <Menu.Item key="gold-loan">
         <Link to="/gold-loan">Gold Loan</Link>
       </Menu.Item>
     </DropdownMenu>
@@ -227,7 +300,7 @@ const Navbar: React.FC = () => {
               Cards <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
-          <Dropdown overlay={loansMenu} trigger={['hover']}>
+          <Dropdown overlay={loansDropdownMenu} trigger={['hover']}>
             <NavLink to="/loans" $active={location.pathname.includes('loan')}>
               Loans <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
