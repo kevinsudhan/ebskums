@@ -15,7 +15,6 @@ import GoldLoan from './pages/GoldLoan/GoldLoan';
 import HomeLoanBalanceTransfer from './pages/HomeLoanBalanceTransfer/HomeLoanBalanceTransfer';
 import LoanAgainstProperty from './pages/LoanAgainstProperty/LoanAgainstProperty';
 import AboutUs from './pages/AboutUs/AboutUs';
-import AUCreditCard from './pages/Cards/AUCreditCard';
 import AxisCreditCard from './pages/Cards/AxisCreditCard';
 import HDFCCreditCard from './pages/Cards/HDFCCreditCard';
 import ICICICreditCard from './pages/Cards/ICICICreditCard';
@@ -47,7 +46,6 @@ const App: React.FC = () => {
             
             {/* Credit Card Routes */}
             <Route path="/credit-cards" element={<CreditCards />} />
-            <Route path="/cards/au-bank" element={<AUCreditCard />} />
             <Route path="/cards/axis-bank" element={<AxisCreditCard />} />
             <Route path="/cards/hdfc-bank" element={<HDFCCreditCard />} />
             <Route path="/cards/icici-bank" element={<ICICICreditCard />} />

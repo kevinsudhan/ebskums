@@ -873,7 +873,7 @@ const CreditCards: React.FC = () => {
             Transform Your Spending with Premium Credit Cards
           </Title>
           <Text style={{ color: 'white', fontSize: '1.2rem', display: 'block', marginBottom: '1.5rem' }}>
-            Discover exclusive rewards, cashback, and privileges. Apply now and elevate your financial journey with EBS Finance.
+            Discover exclusive rewards, cashback, and privileges. Apply now and elevate your financial journey with EBS Groups.
           </Text>
           <div className="feature-tags">
             <FeatureTag icon={<StarFilled />}>

@@ -150,10 +150,6 @@ const Navbar: React.FC = () => {
 
   const cardItems: MenuProps['items'] = [
     {
-      key: 'au-bank',
-      label: <Link to="/cards/au-bank">AU Bank Credit Cards</Link>,
-    },
-    {
       key: 'axis-bank',
       label: <Link to="/cards/axis-bank">Axis Bank Credit Cards</Link>,
     },

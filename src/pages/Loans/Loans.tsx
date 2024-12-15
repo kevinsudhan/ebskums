@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Card, Row, Col, Typography, Form, Input, Select, Button } from 'antd';
 import { BankOutlined, SafetyOutlined, DollarOutlined, HomeOutlined, CalculatorOutlined, RiseOutlined, CheckCircleFilled, UserOutlined, ShopOutlined, SwapOutlined, GoldOutlined } from '@ant-design/icons';
 import { typography, colors, effects, spacing, breakpoints } from '../../styles/theme';
@@ -758,6 +758,23 @@ const SubmitButton = styled(Button)`
 `;
 
 const Loans: React.FC = () => {
+  const [form] = Form.useForm();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we have a hash in the URL
+    if (location.hash === '#loan-application') {
+      setTimeout(() => {
+        const element = document.getElementById('loan-application');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Pre-select Personal Loan if coming from Personal Loan page
+          form.setFieldsValue({ loanType: 'personal' });
+        }
+      }, 500);
+    }
+  }, [location, form]);
+
   const loanTypes = [
     {
       title: "Personal Loans",
@@ -833,8 +850,6 @@ const Loans: React.FC = () => {
     }
   ];
 
-  const [form] = Form.useForm();
-
   const onFinish = (values: any) => {
     console.log('Form values:', values);
   };
@@ -905,7 +920,7 @@ const Loans: React.FC = () => {
 
       
 
-      <ApplicationSection>
+      <ApplicationSection id="loan-application">
         <ApplicationContainer>
           <FormLeftSection>
             <h3>Why Choose EBS Loans?</h3>
