@@ -33,9 +33,7 @@ import PLNBFCPartners from './pages/PersonalLoan/PLNBFCPartners';
 import PLFintechPartners from './pages/PersonalLoan/PLFintechPartners';
 
 // Business Loan Partner Pages
-import BLBankingPartners from './pages/BusinessLoan/BLBankingPartners';
-import BLNBFCPartners from './pages/BusinessLoan/BLNBFCPartners';
-import BLFintechPartners from './pages/BusinessLoan/BLFintechPartners';
+import { BLBankingPartners, BLNBFCPartners, BLFintechPartners } from './pages/BusinessLoan';
 
 // Loan Against Property Partner Pages
 import LAPBankingPartners from './pages/LoanAgainstProperty/LAPBankingPartners';
