@@ -8,14 +8,22 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@assets': path.resolve(__dirname, './src/assets')
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@images': path.resolve(__dirname, './src/assets/images')
     }
   },
-  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif'],
+  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif', '**/*.webp'],
   build: {
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name][extname]'
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.')
+          const extType = info[info.length - 1]
+          if (/png|jpe?g|svg|gif|webp/i.test(extType)) {
+            return `assets/images/[name]-[hash][extname]`
+          }
+          return `assets/[name]-[hash][extname]`
+        }
       }
     }
   },

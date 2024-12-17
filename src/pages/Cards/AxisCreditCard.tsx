@@ -9,17 +9,21 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 // Import images
-import axisCard from '../../assets/images/cards/Axis.png';
-import airtelAxisCard from '../../assets/images/cards/axis-bank/airtel-axis-credit-card-removebg-preview.png';
-import licSignatureCard from '../../assets/images/cards/axis-bank/lic-signature-credit-card-300x189.jpg-removebg-preview.png';
-import selectCard from '../../assets/images/cards/axis-bank/axis-bank-select-credit-card-665x433-removebg-preview.png';
-import rewardsCard from '../../assets/images/cards/axis-bank/Axis-Bank-Rewards-Credit-Card.webp';
-import neoCard from '../../assets/images/cards/axis-bank/Axis-Bank-Neo-Credit-Card.webp';
-import myZoneCard from '../../assets/images/cards/axis-bank/Axis-Bank-My-Zone-Credit-Card-300x190.png.webp';
-import magnusCard from '../../assets/images/cards/axis-bank/Axis-Bank-Magnus-Credit-Card.jpg';
-import aceCard from '../../assets/images/cards/axis-bank/Axis-Bank-ACE-Credit-Card.webp';
-import licPlatinumCard from '../../assets/images/cards/axis-bank/LIC-Platinum-Credit-Card-300x181.png.webp';
-import indianOilCard from '../../assets/images/cards/axis-bank/IndianOil-Axis-Bank-Premium-Credit-Card-removebg-preview.png';
+// Import images
+// Import images
+import { 
+  AxisCard as axisCard,
+  AirtelAxisCard as airtelAxisCard,
+  LicSignatureCard as licSignatureCard,
+  SelectCard as selectCard,
+  RewardsCard as rewardsCard,
+  NeoCard as neoCard,
+  MyZoneCard as myZoneCard,
+  MagnusCard as magnusCard,
+  AceCard as aceCard,
+  LicPlatinumCard as licPlatinumCard,
+  IndianOilCard as indianOilCard
+} from '@images';
 
 interface Card {
   id: number;
