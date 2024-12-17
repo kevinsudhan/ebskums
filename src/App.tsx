@@ -11,7 +11,6 @@ import CreditCards from './pages/CreditCards/CreditCards';
 import BusinessLoan from './pages/BusinessLoan/BusinessLoan';
 import HealthInsurance from './pages/HealthInsurance/HealthInsurance';
 import LifeInsurance from './pages/LifeInsurance/LifeInsurance';
-import ShortTermLoan from './pages/ShortTermLoan/ShortTermLoan';
 import HomeLoan from './pages/HomeLoan/HomeLoan';
 import GoldLoan from './pages/GoldLoan/GoldLoan';
 import HomeLoanBalanceTransfer from './pages/HomeLoanBalanceTransfer/HomeLoanBalanceTransfer';
@@ -19,6 +18,7 @@ import LoanAgainstProperty from './pages/LoanAgainstProperty/LoanAgainstProperty
 import AboutUs from './pages/AboutUs/AboutUs';
 import Insurance from './pages/Insurance/Insurance';
 import Loans from './pages/Loans/Loans';
+import Login from './pages/login/Login';
 
 // Card Pages
 import AxisCreditCard from './pages/Cards/AxisCreditCard';
@@ -98,6 +98,7 @@ const App: React.FC = () => {
             <Route path="/health-insurance" element={<HealthInsurance />} />
             <Route path="/life-insurance" element={<LifeInsurance />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </MainContent>
       </AppContainer>

@@ -121,6 +121,24 @@ const AboutUsButton = styled(Button)`
   }
 `;
 
+const LoginButton = styled(Button)`
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  height: 38px;
+  padding: 0 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: white !important;
+    color: #333 !important;
+    border-color: #bbb !important;
+  }
+`;
+
 const DropdownMenu = styled(Menu)`
   min-width: 300px;
   padding: 8px;
@@ -313,6 +331,9 @@ const Navbar: React.FC = () => {
         </NavLinks>
 
         <ActionButtons>
+          <Link to="/login">
+            <LoginButton>Login</LoginButton>
+          </Link>
           <Link to="/about-us">
             <AboutUsButton>About Us</AboutUsButton>
           </Link>

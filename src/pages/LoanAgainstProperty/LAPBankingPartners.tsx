@@ -399,6 +399,702 @@ const loanDetails: LoanDetailsMap = {
     minAmount: "₹3,00,000",
     tenure: "Up to 18 years",
     interestRate: "8.75% - 12.00% p.a."
+  },
+  "Axis Bank LAP": {
+    features: [
+      "Property value up to ₹5 crore",
+      "Digital loan processing",
+      "Balance transfer facility",
+      "Doorstep service",
+      "Online account access"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹45,000 per month",
+        "Property age < 45 years",
+        "Clear property title",
+        "Minimum property value: ₹20 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹20 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.75% - 12.00% p.a."
+  },
+  "IDFC FIRST Bank LAP": {
+    features: [
+      "Property value up to ₹4 crore",
+      "Online loan management",
+      "Balance transfer option",
+      "Part prepayment facility",
+      "Digital documentation"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Zero foreclosure charges",
+      "Minimal documentation",
+      "Quick processing",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹40,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property papers",
+        "Identity & address proof",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property papers",
+        "Identity & address proof",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹4,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.00% - 12.50% p.a."
+  },
+  "Yes Bank LAP": {
+    features: [
+      "Property value up to ₹5 crore",
+      "Digital loan journey",
+      "Balance transfer facility",
+      "Overdraft facility",
+      "Online account management"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "Minimal documentation",
+      "Quick disbursement",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹40,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.85% - 12.25% p.a."
+  },
+  "Bandhan Bank LAP": {
+    features: [
+      "Property value up to ₹3 crore",
+      "Digital loan processing",
+      "Balance transfer option",
+      "Doorstep service",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹35,000 per month",
+        "Property age < 35 years",
+        "Clear property title",
+        "Minimum property value: ₹10 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹10 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.50% - 13.00% p.a."
+  },
+  "CSB Bank LAP": {
+    features: [
+      "Property value up to ₹2.5 crore",
+      "Online loan management",
+      "Balance transfer facility",
+      "Part prepayment option",
+      "Digital documentation"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "Minimal documentation",
+      "Quick processing",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹35,000 per month",
+        "Property age < 35 years",
+        "Clear property title",
+        "Minimum property value: ₹10 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹10 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property papers",
+        "Identity & address proof",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property papers",
+        "Identity & address proof",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹2,50,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.75% - 13.25% p.a."
+  },
+  "DCB Bank LAP": {
+    features: [
+      "Property value up to ₹3 crore",
+      "Digital loan processing",
+      "Balance transfer option",
+      "Overdraft facility",
+      "Online account management"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹35,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.25% - 12.75% p.a."
+  },
+  "Federal Bank LAP": {
+    features: [
+      "Property value up to ₹4 crore",
+      "Digital loan journey",
+      "Balance transfer facility",
+      "Part prepayment option",
+      "Online account access"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹40,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹4,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.00% - 12.50% p.a."
+  },
+  "IndusInd Bank LAP": {
+    features: [
+      "Property value up to ₹5 crore",
+      "Digital loan processing",
+      "Balance transfer option",
+      "Overdraft facility",
+      "Online account management"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Tax benefits available",
+      "Minimal documentation",
+      "Quick processing",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹45,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹20 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹20 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹7,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.90% - 12.25% p.a."
+  },
+  "Karur Vysya Bank LAP": {
+    features: [
+      "Property value up to ₹3 crore",
+      "Online loan management",
+      "Balance transfer facility",
+      "Part prepayment option",
+      "Digital documentation"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹35,000 per month",
+        "Property age < 35 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property papers",
+        "Identity & address proof",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property papers",
+        "Identity & address proof",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.50% - 13.00% p.a."
+  },
+  "Kotak Mahindra Bank LAP": {
+    features: [
+      "Property value up to ₹5 crore",
+      "Digital loan journey",
+      "Balance transfer facility",
+      "Overdraft facility",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹45,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹20 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹20 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹7,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.85% - 12.00% p.a."
+  },
+  "RBL Bank LAP": {
+    features: [
+      "Property value up to ₹4 crore",
+      "Digital loan processing",
+      "Balance transfer option",
+      "Part prepayment facility",
+      "Online account management"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "Tax benefits available",
+      "Minimal documentation",
+      "Quick processing",
+      "Flexible repayment options"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹40,000 per month",
+        "Property age < 40 years",
+        "Clear property title",
+        "Minimum property value: ₹15 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 3 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹15 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 3 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹4,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.25% - 12.75% p.a."
+  },
+  "South Indian Bank LAP": {
+    features: [
+      "Property value up to ₹3 crore",
+      "Online loan management",
+      "Balance transfer facility",
+      "Part prepayment option",
+      "Digital documentation"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Tax benefits available",
+      "No hidden charges",
+      "Quick disbursement",
+      "Flexible repayment terms"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on unpaid amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Minimum income: ₹35,000 per month",
+        "Property age < 35 years",
+        "Clear property title",
+        "Minimum property value: ₹10 lakhs"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "ITR for last 2 years",
+        "Property clear of all encumbrances",
+        "Minimum property value: ₹10 lakhs"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property papers",
+        "Identity & address proof",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Property valuation report"
+      ],
+      selfEmployed: [
+        "Property papers",
+        "Identity & address proof",
+        "Last 2 years ITR",
+        "Last 12 months bank statements",
+        "Business proof",
+        "Property valuation report"
+      ]
+    },
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.50% - 13.00% p.a."
   }
 };
 

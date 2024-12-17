@@ -546,124 +546,118 @@ const loanDetails: LoanDetailsMap = {
     minAmount: "₹5,00,000",
     tenure: "Up to 15 years",
     interestRate: "8.85% - 12.50% p.a."
-  },
-  "Lendingkart Personal Loan": {
+},
+  "Lendingkart LAP": {
     features: [
-      "Instant approval system",
-      "Collateral-free loans",
-      "Flexible repayment options",
-      "Zero foreclosure charges",
-      "Quick processing"
+      "Quick digital approval",
+      "Property valuation assistance",
+      "Flexible repayment structure",
+      "Online loan management",
+      "Top-up loan facility"
     ],
     benefits: [
-      "Instant approval process",
-      "No guarantor required",
-      "Minimal documentation",
-      "Easy EMI options",
-      "Online loan management"
+      "Hassle-free processing",
+      "Transparent charges",
+      "Balance transfer option",
+      "Part-payment facility",
+      "Dedicated relationship manager"
     ],
     fees: {
-      processing: "2% - 3% of loan amount",
-      prepayment: "No charges",
-      latePenalty: "3% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-55 years",
-        "Minimum income: ₹15,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹35,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
         "Age: 25-65 years",
-        "Business vintage: 1+ years",
-        "Minimum annual turnover: ₹2,40,000",
-        "Bank statement for 6 months",
-        "Credit score: 650+"
+        "Property ownership mandatory",
+        "Business vintage: 3+ years",
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 2 months salary slips",
+        "Property documents",
+        "KYC documents",
         "Last 6 months bank statements",
-        "Address proof"
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "GST registration (if applicable)",
-        "Last 6 months bank statements",
-        "Business proof",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹15,00,000",
-    minAmount: "₹50,000",
-    tenure: "3 to 36 months",
-    interestRate: "11.99% - 25% p.a."
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 12 years",
+    interestRate: "9.00% - 13.00% p.a."
   },
-  "Sundaram Finance Personal Loan": {
+  "Sundaram Finance LAP": {
     features: [
-      "Transparent processing",
+      "Professional property valuation",
       "Flexible repayment options",
-      "No hidden charges",
-      "Online loan management",
-      "Pre-approved offers"
+      "Overdraft facility",
+      "Branch support available",
+      "Top-up loan facility"
     ],
     benefits: [
-      "Low interest rates",
-      "Quick loan approval",
+      "Competitive interest rates",
+      "Transparent processing",
+      "No hidden charges",
       "Balance transfer facility",
-      "Part payment facility",
-      "Dedicated support"
+      "Part-payment option"
     ],
     fees: {
-      processing: "Up to 2% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 700+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
-        "Age: 21-65 years",
+        "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 3+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 700+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
+        "Property documents",
+        "KYC documents",
         "Last 6 months bank statements",
-        "Form 16"
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Last 2 years ITR",
-        "Last 6 months bank statements",
-        "Business proof",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business registration proof"
       ]
     },
-    maxAmount: "₹25,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "10.75% - 22% p.a."
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.70% - 12.25% p.a."
   },
-  "Hinduja Housing Finance Personal Loan": {
+  "Hinduja Housing Finance LAP": {
     features: [
       "Minimal documentation",
       "Quick processing",
@@ -721,354 +715,337 @@ const loanDetails: LoanDetailsMap = {
     tenure: "12 to 60 months",
     interestRate: "11.25% - 24% p.a."
   },
-  "Tata Capital Personal Loan": {
+  "Tata Capital LAP":{
     features: [
-      "Digital onboarding",
-      "Instant approval",
+      "Digital onboarding process",
+      "Expert property valuation",
       "Flexible repayment options",
-      "Balance transfer facility",
-      "Top-up loan facility"
+      "Overdraft facility",
+      "Property insurance assistance"
     ],
     benefits: [
-      "Trusted brand value",
-      "Competitive interest rates",
-      "Quick disbursement",
-      "Minimal documentation",
-      "Dedicated relationship manager"
-    ],
-    fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2.5% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 21-60 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 750+",
-        "Residence stability: At least 1 year"
-      ],
-      selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 3+ years",
-        "Minimum annual income: ₹5,00,000",
-        "ITR for last 2 years",
-        "Credit score: 750+"
-      ]
-    },
-    documents: {
-      salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
-        "Last 6 months bank statements",
-        "Form 16"
-      ],
-      selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Last 2 years ITR",
-        "Last 6 months bank statements",
-        "Business registration",
-        "Address proof"
-      ]
-    },
-    maxAmount: "₹35,00,000",
-    minAmount: "₹75,000",
-    tenure: "12 to 72 months",
-    interestRate: "10.99% - 22% p.a."
-  },
-  "Manappuram Finance Personal Loan": {
-    features: [
-      "Quick processing",
-      "Minimal documentation",
-      "Flexible repayment options",
-      "Online account access",
-      "Multiple disbursement options"
-    ],
-    benefits: [
-      "Quick processing time",
-      "No hidden charges",
-      "Easy EMI options",
-      "Online loan management",
-      "Pan India presence"
-    ],
-    fees: {
-      processing: "Up to 3% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2.5% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹15,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 6 months"
-      ],
-      selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 2+ years",
-        "Minimum annual income: ₹2,00,000",
-        "ITR for last 1 year",
-        "Credit score: 650+"
-      ]
-    },
-    documents: {
-      salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 2 months salary slips",
-        "Last 3 months bank statements",
-        "Address proof"
-      ],
-      selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business proof",
-        "Last 6 months bank statements",
-        "Address proof"
-      ]
-    },
-    maxAmount: "₹15,00,000",
-    minAmount: "₹50,000",
-    tenure: "12 to 48 months",
-    interestRate: "12% - 26% p.a."
-  },
-  "Ugro Capital Personal Loan": {
-    features: [
-      "Digital-first approach",
-      "Quick approval process",
-      "Flexible loan terms",
-      "Customized solutions",
-      "Easy documentation"
-    ],
-    benefits: [
-      "Fast processing",
+      "Premium service",
       "Competitive rates",
-      "Minimal documentation",
-      "Flexible repayment options",
-      "Digital onboarding"
+      "No hidden charges",
+      "Balance transfer with top-up",
+      "Part-payment without charges"
     ],
     fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 23-58 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 675+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹50,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
         "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 3+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 675+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
         "Latest 3 months salary slips",
-        "Last 6 months bank statements",
-        "Address proof"
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "GST registration",
-        "Last 6 months bank statements",
-        "Business proof",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹20,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "11.5% - 24% p.a."
+    maxAmount: "₹7,50,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 18 years",
+    interestRate: "8.80% - 12.25% p.a."
   },
-  "Hero Fincorp Personal Loan": {
-    features: [
-      "Quick loan approval",
-      "Minimal documentation",
-      "Flexible repayment options",
-      "Online account management",
-      "Pan India presence"
-    ],
-    benefits: [
-      "Competitive interest rates",
-      "Quick disbursement",
-      "No hidden charges",
-      "Flexible tenure",
-      "Dedicated support"
-    ],
-    fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹20,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 675+",
-        "Residence stability: At least 1 year"
-      ],
-      selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 3+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 675+"
-      ]
-    },
-    documents: {
-      salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
-        "Last 6 months bank statements",
-        "Address proof"
-      ],
-      selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business registration",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
-      ]
-    },
-    maxAmount: "₹25,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "11% - 24% p.a."
-  },
-  "IIFL Finance Personal Loan": {
-    features: [
-      "Digital application process",
-      "Quick approval",
-      "Flexible repayment options",
-      "Online account access",
-      "Pan India presence"
-    ],
-    benefits: [
-      "Minimal documentation",
-      "Quick disbursement",
-      "Competitive rates",
-      "Flexible tenure",
-      "Online account management"
-    ],
-    fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹18,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 1 year"
-      ],
-      selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 3+ years",
-        "Minimum annual income: ₹2,50,000",
-        "ITR for last 2 years",
-        "Credit score: 650+"
-      ]
-    },
-    documents: {
-      salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
-        "Last 6 months bank statements",
-        "Address proof"
-      ],
-      selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business proof",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
-      ]
-    },
-    maxAmount: "₹30,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "11.5% - 24% p.a."
-  },
-  "Muthoot FinCorp Personal Loan": {
+  "Manappuram Finance LAP":{
     features: [
       "Quick loan processing",
-      "Minimal documentation",
-      "Flexible repayment options",
-      "Online account access",
-      "Wide branch network"
+      "Property valuation assistance",
+      "Flexible repayment structure",
+      "Branch support",
+      "Top-up loan facility"
     ],
     benefits: [
-      "Fast approval process",
+      "Simple documentation",
+      "Fast disbursement",
       "No hidden charges",
-      "Competitive interest rates",
-      "Easy EMI options",
-      "Pan India presence"
+      "Balance transfer option",
+      "Part-payment facility"
     ],
     fees: {
-      processing: "Up to 3% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2.5% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹15,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 6 months"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹35,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
-        "Age: 21-65 years",
+        "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 2+ years",
-        "Minimum annual income: ₹2,00,000",
-        "ITR for last 1 year",
-        "Credit score: 650+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
         "Latest 3 months salary slips",
-        "Last 3 months bank statements",
-        "Address proof"
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business proof",
-        "Last 6 months bank statements",
-        "ITR for last year",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹10,00,000",
-    minAmount: "₹50,000",
-    tenure: "12 to 48 months",
-    interestRate: "12% - 24% p.a."
-  },
-  "PNB Housing Personal Loan": {
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "Up to 12 years",
+    interestRate: "9.50% - 13.50% p.a."
+},
+  "Ugro Capital LAP":{
+    features: [
+      "Digital application process",
+      "Property valuation support",
+      "Flexible EMI options",
+      "Online loan management",
+      "Business-friendly terms"
+    ],
+    benefits: [
+      "Flexible eligibility criteria",
+      "Quick processing",
+      "Transparent charges",
+      "Balance transfer facility",
+      "Easy documentation"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹35,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 2+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹4,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.25% - 13.00% p.a."
+},
+  "Hero FinCorp LAP":{
+    features: [
+      "Digital loan processing",
+      "Professional property valuation",
+      "Flexible repayment options",
+      "Online account access",
+      "Top-up loan facility"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "Easy repayment options",
+      "No hidden charges",
+      "Balance transfer facility",
+      "Part-payment option"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 3+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.99% - 12.50% p.a."
+},
+  "IIFL LAP":{
+    features: [
+      "Digital loan journey",
+      "Expert property valuation",
+      "Flexible repayment structure",
+      "Overdraft facility",
+      "Property insurance support"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Quick processing",
+      "No hidden charges",
+      "Balance transfer option",
+      "Part-payment facility"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 3+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.85% - 12.75% p.a."
+},
+  "Muthoot FinCorp LAP":{
+    features: [
+      "Quick loan approval",
+      "Professional property valuation",
+      "Flexible repayment options",
+      "Pan India presence",
+      "Doorstep service"
+    ],
+    benefits: [
+      "Minimal documentation",
+      "Quick disbursement",
+      "Transparent charges",
+      "Balance transfer option",
+      "Part-payment facility"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹30,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 2+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹2,00,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "Up to 10 years",
+    interestRate: "9.75% - 14.00% p.a."
+},
+  "PNB Housing LAP": {
     features: [
       "Transparent processing",
       "Flexible repayment options",
@@ -1126,355 +1103,392 @@ const loanDetails: LoanDetailsMap = {
     tenure: "12 to 60 months",
     interestRate: "10.75% - 22% p.a."
   },
-  "Indiabulls Housing Finance Personal Loan": {
+  "Indiabulls Housing LAP":{
     features: [
-      "Digital application process",
-      "Quick approval",
-      "Flexible EMI options",
-      "Online account management",
-      "Pan India presence"
+      "Digital loan journey",
+      "Professional valuation service",
+      "Flexible repayment structure",
+      "Online account access",
+      "Property insurance support"
     ],
     benefits: [
-      "Competitive interest rates",
-      "Quick disbursement",
-      "Minimal documentation",
-      "Flexible tenure",
-      "Dedicated support"
+      "Attractive interest rates",
+      "Quick processing",
+      "No hidden charges",
+      "Balance transfer option",
+      "Part-payment facility"
     ],
     fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "3% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 23-58 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 675+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹45,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
         "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 3+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 675+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
+        "Property documents",
+        "KYC documents",
         "Last 6 months bank statements",
-        "Form 16"
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business proof",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹25,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "11.25% - 24% p.a."
-  },
-  "Bajaj Finance Personal Loan": {
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹10,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.75% - 12.00% p.a."
+ },
+  "Bajaj Housing LAP":{
     features: [
-      "Instant approval",
-      "100% paperless process",
+      "Digital application process",
+      "Professional valuation service",
       "Flexible EMI options",
-      "Online account management",
-      "Pre-approved offers"
+      "Online loan management",
+      "Top-up loan facility"
     ],
     benefits: [
-      "Quick disbursement",
-      "No hidden charges",
-      "Flexi loan facility",
-      "Part prepayment facility",
-      "Dedicated customer portal"
-    ],
-    fees: {
-      processing: "Up to 4% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 21-60 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 750+",
-        "Residence stability: At least 1 year"
-      ],
-      selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 3+ years",
-        "Minimum annual income: ₹5,00,000",
-        "ITR for last 2 years",
-        "Credit score: 750+"
-      ]
-    },
-    documents: {
-      salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
-        "Last 6 months bank statements",
-        "Form 16"
-      ],
-      selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business registration",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
-      ]
-    },
-    maxAmount: "₹40,00,000",
-    minAmount: "₹75,000",
-    tenure: "12 to 84 months",
-    interestRate: "10.50% - 24% p.a."
-  },
-  "TVS Credit Personal Loan": {
-    features: [
-      "Digital application",
+      "Attractive interest rates",
       "Quick processing",
-      "Flexible repayment options",
-      "Online account access",
-      "Pan India presence"
-    ],
-    benefits: [
-      "Minimal documentation",
-      "Quick approval",
       "No hidden charges",
-      "Flexible tenure",
-      "Customer support"
+      "Balance transfer option",
+      "Minimal documentation"
     ],
     fees: {
-      processing: "Up to 3% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2.5% per month on unpaid amount"
+      processing: "Up to 1.5% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-58 years",
-        "Minimum income: ₹18,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
-        "Age: 21-65 years",
-        "Business vintage: 2+ years",
-        "Minimum annual income: ₹2,40,000",
-        "ITR for last 1 year",
-        "Credit score: 650+"
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 3+ years",
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 2 months salary slips",
-        "Last 3 months bank statements",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business proof",
-        "Last 6 months bank statements",
-        "ITR for last year",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹15,00,000",
-    minAmount: "₹50,000",
-    tenure: "12 to 48 months",
-    interestRate: "12% - 26% p.a."
-  },
-  "Poonawalla Fincorp Personal Loan": {
+    maxAmount: "₹4,50,00,000",
+    minAmount: "₹7,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.75% - 12.00% p.a."
+},
+  "Bajaj Finance LAP":{
     features: [
-      "Digital-first approach",
-      "Instant approval",
+      "Digital application process",
+      "Professional valuation service",
       "Flexible EMI options",
-      "Online account management",
-      "Zero foreclosure charges"
+      "Online loan management",
+      "Top-up loan facility"
     ],
     benefits: [
-      "Quick disbursement",
-      "Competitive rates",
-      "Minimal documentation",
-      "Flexible repayment options",
-      "Digital onboarding"
+      "Attractive interest rates",
+      "Quick processing",
+      "No hidden charges",
+      "Balance transfer option",
+      "Minimal documentation"
     ],
     fees: {
-      processing: "Up to 2.5% of loan amount",
-      prepayment: "No charges",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 1.5% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-60 years",
-        "Minimum income: ₹20,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 675+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
-        "Age: 21-65 years",
+        "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 3+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 675+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
         "Latest 3 months salary slips",
-        "Last 3 months bank statements",
-        "Address proof"
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business registration",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹30,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "10.99% - 24% p.a."
-  },
-  "Neogrowth Credit Personal Loan": {
+    maxAmount: "₹4,50,00,000",
+    minAmount: "₹7,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.75% - 12.00% p.a."
+},
+  "TVS Credit LAP": {
     features: [
-      "Digital loan process",
-      "Quick approval",
-      "Flexible repayment",
+      "Quick loan processing",
+      "Property valuation support",
+      "Flexible repayment structure",
       "Online account access",
+      "Doorstep service"
+    ],
+    benefits: [
+      "Simple documentation",
+      "Fast disbursement",
+      "Transparent charges",
+      "Balance transfer facility",
+      "Part-payment option"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹35,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 2+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 12 years",
+    interestRate: "9.50% - 13.50% p.a."
+},
+  "Poonawalla Fincorp LAP":{
+    features: [
+      "Digital loan journey",
+      "Expert property valuation",
+      "Flexible repayment options",
+      "Online account management",
+      "Top-up loan facility"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Quick processing",
+      "No hidden charges",
+      "Balance transfer option",
+      "Part-payment facility"
+    ],
+    fees: {
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹40,000 per month",
+        "Property should be residential/commercial"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Property ownership mandatory",
+        "Business vintage: 3+ years",
+        "Property should be residential/commercial"
+      ]
+    },
+    documents: {
+      salaried: [
+        "Property documents",
+        "KYC documents",
+        "Last 6 months bank statements",
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
+      ],
+      selfEmployed: [
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹4,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "9.00% - 12.50% p.a."
+},
+  "NeoGrowth LAP":{
+    features: [
+      "Digital application process",
+      "Property valuation support",
+      "Flexible EMI options",
+      "Online loan management",
       "Business-friendly terms"
     ],
     benefits: [
-      "Fast processing",
+      "Quick approval",
       "Minimal documentation",
-      "Competitive rates",
-      "Flexible EMI options",
-      "Digital onboarding"
+      "Transparent charges",
+      "Balance transfer facility",
+      "Part-payment option"
     ],
     fees: {
-      processing: "Up to 3% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2.5% per month on unpaid amount"
+      processing: "Up to 1.5% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 23-58 years",
-        "Minimum income: ₹20,000 per month",
-        "Employment: Minimum 1 year experience",
-        "Credit score: 650+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹35,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
         "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 2+ years",
-        "Minimum annual income: ₹3,00,000",
-        "ITR for last 2 years",
-        "Credit score: 650+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
+        "Property documents",
+        "KYC documents",
         "Last 6 months bank statements",
-        "Address proof"
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business registration",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹20,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 36 months",
-    interestRate: "12% - 26% p.a."
-  },
-  "Axis Finance Personal Loan": {
+    maxAmount: "₹3,00,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "Up to 12 years",
+    interestRate: "9.75% - 14.00% p.a."
+},
+  "Axis Finance LAP":{
     features: [
-      "Digital application process",
-      "Quick approval",
-      "Flexible EMI options",
-      "Online account management",
-      "Multiple repayment modes"
+      "Digital loan processing",
+      "Professional valuation service",
+      "Flexible repayment structure",
+      "Online account access",
+      "Property insurance support"
     ],
     benefits: [
       "Competitive interest rates",
       "Quick disbursement",
-      "Minimal documentation",
-      "Flexible tenure",
-      "Dedicated support"
+      "Transparent charges",
+      "Balance transfer option",
+      "Part-payment facility"
     ],
     fees: {
-      processing: "Up to 2% of loan amount",
-      prepayment: "2% of outstanding amount",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 1% of loan amount",
+      prepayment: "Nil for floating rate loans",
+      latePenalty: "2% per month on EMI"
     },
     eligibility: {
       salaried: [
-        "Age: 21-60 years",
-        "Minimum income: ₹25,000 per month",
-        "Employment: Minimum 2 years experience",
-        "Credit score: 750+",
-        "Residence stability: At least 1 year"
+        "Age: 25-60 years",
+        "Property ownership mandatory",
+        "Minimum income: ₹50,000 per month",
+        "Property should be residential/commercial"
       ],
       selfEmployed: [
-        "Age: 21-65 years",
+        "Age: 25-65 years",
+        "Property ownership mandatory",
         "Business vintage: 3+ years",
-        "Minimum annual income: ₹5,00,000",
-        "ITR for last 2 years",
-        "Credit score: 750+"
+        "Property should be residential/commercial"
       ]
     },
     documents: {
       salaried: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Latest 3 months salary slips",
+        "Property documents",
+        "KYC documents",
         "Last 6 months bank statements",
-        "Form 16"
+        "Latest 3 months salary slips",
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "PAN Card",
-        "Aadhaar Card",
-        "Business registration",
-        "Last 6 months bank statements",
-        "ITR for last 2 years",
-        "Address proof"
+        "Property documents",
+        "KYC documents",
+        "Last 12 months bank statements",
+        "Last 2 years ITR with computation",
+        "Business proof documents"
       ]
     },
-    maxAmount: "₹35,00,000",
-    minAmount: "₹1,00,000",
-    tenure: "12 to 60 months",
-    interestRate: "10.75% - 22% p.a."
-  },
-  "HDB Financial Services Personal Loan": {
+    maxAmount: "₹5,00,00,000",
+    minAmount: "₹10,00,000",
+    tenure: "Up to 15 years",
+    interestRate: "8.75% - 12.00% p.a."
+},
+  "HDB Financial Services LAP": {
     features: [
       "Quick loan approval",
       "Minimal documentation",

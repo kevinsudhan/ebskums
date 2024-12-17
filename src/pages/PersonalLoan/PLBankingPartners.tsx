@@ -399,7 +399,702 @@ const loanDetails: LoanDetailsMap = {
     minAmount: "₹50,000",
     tenure: "12 to 60 months",
     interestRate: "10.75% - 19.00% p.a."
-  }
+  },
+  "Axis Bank Personal Loan": {
+    features: [
+      "100% digital process",
+      "Instant disbursement",
+      "Zero collateral",
+      "Minimal documentation",
+      "Pre-approved offers"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "No hidden charges",
+      "Flexible tenure options",
+      "No security required",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 23-58 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 750+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 750+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof documents"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "10.50% - 22.00% p.a."
+},
+
+"IDFC FIRST Bank Personal Loan": {
+    features: [
+      "Digital application process",
+      "Quick disbursement",
+      "Zero collateral",
+      "Flexible repayment options",
+      "Online account management"
+    ],
+    benefits: [
+      "Attractive interest rates",
+      "No hidden charges",
+      "No security deposit",
+      "Easy EMI options",
+      "Part payment allowed"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "Nil after 12 months",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 23-65 years",
+        "Minimum income: ₹20,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹2.5 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 3 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹35,00,000",
+    minAmount: "₹30,000",
+    tenure: "12-60 months",
+    interestRate: "10.49% - 24.00% p.a."
+},
+
+"Yes Bank Personal Loan": {
+    features: [
+      "Digital loan journey",
+      "Quick approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Transparent charges",
+      "No security needed",
+      "Balance transfer facility",
+      "Part payment option"
+    ],
+    fees: {
+      processing: "Up to 2.5% of loan amount",
+      prepayment: "4% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business registration proof"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "10.99% - 24.00% p.a."
+},
+
+"Bandhan Bank Personal Loan": {
+    features: [
+      "Quick processing",
+      "Minimal documentation",
+      "Zero collateral",
+      "Flexible repayment",
+      "Digital application"
+    ],
+    benefits: [
+      "Competitive interest rates",
+      "No hidden charges",
+      "No security required",
+      "Easy EMI options",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹20,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 650+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 2+ years",
+        "Minimum income: ₹2.4 lakhs per annum",
+        "Credit score: 650+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 3 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 1 year ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹25,00,000",
+    minAmount: "₹25,000",
+    tenure: "12-60 months",
+    interestRate: "11.00% - 24.00% p.a."
+},
+
+"CSB Bank Personal Loan": {
+    features: [
+      "Digital process",
+      "Quick approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online management"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Transparent charges",
+      "No security needed",
+      "Easy EMI options",
+      "Part payment allowed"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-58 years",
+        "Minimum income: ₹20,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 650+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹2.4 lakhs per annum",
+        "Credit score: 650+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 3 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹25,00,000",
+    minAmount: "₹25,000",
+    tenure: "12-60 months",
+    interestRate: "11.50% - 24.00% p.a."
+},
+
+"DCB Bank Personal Loan": {
+    features: [
+      "Digital application",
+      "Quick processing",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive rates",
+      "No hidden charges",
+      "No security needed",
+      "Easy EMI options",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹30,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "11.00% - 24.00% p.a."
+},
+
+"Federal Bank Personal Loan": {
+    features: [
+      "Digital process",
+      "Quick disbursement",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online management"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Transparent charges",
+      "No security needed",
+      "Easy EMI options",
+      "Part payment allowed"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹30,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "10.99% - 24.00% p.a."
+},
+
+"IndusInd Bank Personal Loan": {
+    features: [
+      "Digital application",
+      "Instant approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive rates",
+      "No hidden charges",
+      "No security needed",
+      "Balance transfer option",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2.5% of loan amount",
+      prepayment: "3% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹35,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "10.49% - 22.00% p.a."
+},
+
+"Karur Vysya Bank Personal Loan": {
+    features: [
+      "Digital process",
+      "Quick approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online management"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Transparent charges",
+      "No security needed",
+      "Easy EMI options",
+      "Part payment allowed"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-58 years",
+        "Minimum income: ₹20,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 650+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹2.4 lakhs per annum",
+        "Credit score: 650+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 3 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹25,00,000",
+    minAmount: "₹25,000",
+    tenure: "12-60 months",
+    interestRate: "11.50% - 24.00% p.a."
+},
+
+"Kotak Mahindra Bank Personal Loan": {
+    features: [
+      "Digital application",
+      "Instant approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online account access"
+    ],
+    benefits: [
+      "Competitive rates",
+      "No hidden charges",
+      "No security needed",
+      "Balance transfer option",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2.5% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 750+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 750+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹50,000",
+    tenure: "12-60 months",
+    interestRate: "10.49% - 24.00% p.a."
+},
+
+"RBL Bank Personal Loan": {
+    features: [
+      "Digital process",
+      "Quick approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online management"
+    ],
+    benefits: [
+      "Competitive rates",
+      "Transparent charges",
+      "No security needed",
+      "Balance transfer facility",
+      "Part payment allowed"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 23-58 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 700+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹3 lakhs per annum",
+        "Credit score: 700+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹35,00,000",
+    minAmount: "₹40,000",
+    tenure: "12-60 months",
+    interestRate: "10.99% - 24.00% p.a."
+},
+
+"South Indian Bank Personal Loan": {
+    features: [
+      "Digital process",
+      "Quick approval",
+      "Zero collateral",
+      "Flexible repayment",
+      "Online management"
+    ],
+    benefits: [
+      "Competitive rates",
+      "No hidden charges",
+      "No security needed",
+      "Easy EMI options",
+      "Part payment facility"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month on EMI"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-60 years",
+        "Minimum income: ₹20,000 per month",
+        "Employment stability: 1+ years",
+        "Credit score: 650+",
+        "Indian resident"
+      ],
+      selfEmployed: [
+        "Age: 25-65 years",
+        "Business vintage: 3+ years",
+        "Minimum income: ₹2.4 lakhs per annum",
+        "Credit score: 650+",
+        "Indian resident"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 3 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Last 2 years ITR",
+        "Last 6 months bank statements",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹25,00,000",
+    minAmount: "₹25,000",
+    tenure: "12-60 months",
+    interestRate: "11.50% - 24.00% p.a."
+}
 };
 
 const PageContainer = styled.div`

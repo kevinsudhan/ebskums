@@ -255,7 +255,9 @@ const loanDetails: LoanDetailsMap = {
     minAmount: "₹50,000",
     tenure: "12 to 60 months",
     interestRate: "10.75% - 19.00% p.a."
-  }
+  },
+  
+  
 };
 
 const PageContainer = styled.div`
@@ -948,32 +950,6 @@ const PersonalLoan: React.FC = () => {
     });
   };
 
-  const handleDownloadPDF = async (): Promise<void> => {
-    if (!compareContentRef.current) return;
-    
-    try {
-      // Create canvas from the comparison content
-      const canvas = await html2canvas(compareContentRef.current, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff'
-      });
-
-      // Calculate dimensions
-      const imgWidth = 210; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-      // Create PDF
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgData = canvas.toDataURL('image/png');
-      
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save('loan-comparison.pdf');
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    }
-  };
 
   const handleCheckEligibility = () => {
     navigate('/loans#loan-application');

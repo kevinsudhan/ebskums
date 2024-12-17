@@ -870,6 +870,80 @@ const SubmitButton = styled(Button)`
   }
 `;
 
+const InsuranceGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const InsuranceCard = styled.div`
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .content {
+    padding: 24px;
+    text-align: center;
+
+    h3 {
+      color: #1a365d;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+`;
+
+const InsuranceSection = styled.section`
+  padding: 60px 0;
+  background: #f8fafc;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    h2 {
+      color: #1a365d;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+  }
+`;
+
 const Insurance: React.FC = () => {
   const insuranceCards = [
     {
@@ -942,45 +1016,23 @@ const Insurance: React.FC = () => {
         </HeroImage>
       </HeroSection>
 
-      <FirstCarouselSection>
-        <CarouselContainer>
-          <CarouselTitle>
-            <div className="floating-shapes">
-              <div className="shape"></div>
-              <div className="shape"></div>
-              <div className="shape"></div>
-            </div>
-            <Title level={2}>Insurances offered</Title>
-          </CarouselTitle>
-          <StyledCarousel 
-            autoplay
-            autoplaySpeed={0}
-            speed={0}
-            slidesToShow={2}
-            slidesToScroll={1}
-            infinite={true}
-            dots={false}
-            pauseOnHover={false}
-            cssEase="linear"
-            arrows={false}
-            swipe={false}
-            draggable={false}
-            variableWidth={true}
-            centerMode={false}
-          >
-            {duplicatedItems.map((item, index) => (
-              <CarouselCard key={index} style={{ animation: 'scrollSlow 600s linear infinite' }}>
-                <div className="content">
-                  <h3>{item.title}</h3>
-                </div>
-                <div className="image-container">
-                  <img src={item.image} alt={item.title} />
-                </div>
-              </CarouselCard>
-            ))}
-          </StyledCarousel>
-        </CarouselContainer>
-      </FirstCarouselSection>
+      <InsuranceSection>
+        <div className="section-title">
+          <h2>Insurances Offered</h2>
+        </div>
+        <InsuranceGrid>
+          {insuranceCards.map((item, index) => (
+            <InsuranceCard key={index}>
+              <div className="image-wrapper">
+                <img src={item.image} alt={item.title} />
+              </div>
+              <div className="content">
+                <h3>{item.title}</h3>
+              </div>
+            </InsuranceCard>
+          ))}
+        </InsuranceGrid>
+      </InsuranceSection>
 
       <ApplicationSection>
         <ApplicationContainer>
