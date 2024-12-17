@@ -223,7 +223,6 @@ const HeroContent = styled.div`
 const HeroImage = styled.div`
   flex: 1;
   max-width: 500px;
-  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,14 +242,27 @@ const HeroImage = styled.div`
 
   img {
     max-width: 90%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
     filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
+    transform: perspective(1000px) rotateY(-15deg);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+    }
   }
 
   @media (max-width: 1024px) {
-    max-width: 400px;
-    height: 400px;
+    max-width: 350px;
+    margin: 0 auto;
+    
+    img {
+      max-width: 85%;
+      transform: perspective(1000px) rotateY(0deg);
+      &:hover {
+        transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+      }
+    }
   }
 `;
 

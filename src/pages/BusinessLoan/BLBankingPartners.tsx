@@ -73,332 +73,1028 @@ const { Title, Text } = Typography;
 const personalLoans: Loan[] = [
   {
     id: 1,
-    name: "HDFC Bank LAP",
+    name: "HDFC Bank Business Loan",
     bankName: "HDFC Bank",
     bankLogo: bankLogos.hdfc,
-    interestRate: "8.65% - 11.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹10,00,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
+    interestRate: "14.00% - 19.50% p.a.",
+    processingFee: "Up to 3%",
+    maxAmount: "₹75,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12-60 months",
     rating: 4.8,
-    suitedFor: ["Self-Employed", "Business Owners", "Salaried"],
-    benefit: "Quick approval within 72 hours",
+    suitedFor: ["Self-Employed", "Business Owners", "Startups"],
+    benefit: "Quick approval within 48 hours",
     benefitIcon: FieldTimeOutlined
   },
   {
     id: 2,
-    name: "ICICI Bank LAP",
+    name: "ICICI Bank Business Loan",
     bankName: "ICICI Bank",
     bankLogo: bankLogos.icici,
-    interestRate: "8.75% - 12.00% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹8,00,00,000",
+    interestRate: "15.00% - 19.00% p.a.",
+    processingFee: "Up to 2.50%",
+    maxAmount: "₹1,00,00,000",
     minAmount: "₹3,00,000",
-    tenure: "Up to 18 years",
+    tenure: "12-48 months",
     rating: 4.7,
-    suitedFor: ["Business Owners", "Self-Employed", "Professionals"],
-    benefit: "Doorstep service available",
-    benefitIcon: StarFilled
+    suitedFor: ["Self-Employed", "MSMEs", "Startups"],
+    benefit: "Digital journey with minimal documentation",
+    benefitIcon: FileProtectOutlined
   },
   {
     id: 3,
-    name: "Axis Bank LAP",
+    name: "Axis Bank Business Loan",
     bankName: "Axis Bank",
     bankLogo: bankLogos.axis,
-    interestRate: "8.85% - 11.75% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹7,50,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
+    interestRate: "15.50% - 20.00% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹50,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12-60 months",
     rating: 4.6,
-    suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
+    suitedFor: ["Self-Employed", "SMEs", "Professionals"],
     benefit: "Flexible repayment options",
-    benefitIcon: DollarOutlined
-  },
-  {
-    id: 4,
-    name: "IDFC FIRST Bank LAP",
-    bankName: "IDFC FIRST Bank",
-    bankLogo: bankLogos.idfc,
-    interestRate: "8.70% - 11.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹6,00,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.6,
-    suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
-    benefit: "Zero prepayment charges",
-    benefitIcon: DollarOutlined
-  },
-  {
-    id: 5,
-    name: "Yes Bank LAP",
-    bankName: "Yes Bank",
-    bankLogo: bankLogos.yes,
-    interestRate: "8.90% - 12.25% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹5,00,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.4,
-    suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
-    benefit: "End-to-end digital process",
-    benefitIcon: FieldTimeOutlined
-  },
-  {
-    id: 6,
-    name: "Bandhan Bank LAP",
-    bankName: "Bandhan Bank",
-    bankLogo: bankLogos.bandhan,
-    interestRate: "9.00% - 12.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹3,00,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.3,
-    suitedFor: ["Self-Employed", "Business Owners"],
-    benefit: "Quick loan approval",
-    benefitIcon: FieldTimeOutlined
-  },
-  {
-    id: 7,
-    name: "CSB Bank LAP",
-    bankName: "CSB Bank",
-    bankLogo: bankLogos.csb,
-    interestRate: "9.25% - 12.75% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹2,50,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 12 years",
-    rating: 4.2,
-    suitedFor: ["Self-Employed", "Business Owners"],
-    benefit: "Minimal documentation",
-    benefitIcon: FileProtectOutlined
-  },
-  {
-    id: 8,
-    name: "DCB Bank LAP",
-    bankName: "DCB Bank",
-    bankLogo: bankLogos.dcb,
-    interestRate: "9.15% - 12.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹3,50,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.3,
-    suitedFor: ["Self-Employed", "Business Owners"],
-    benefit: "Flexible repayment options",
-    benefitIcon: DollarOutlined
-  },
-  {
-    id: 9,
-    name: "Federal Bank LAP",
-    bankName: "Federal Bank",
-    bankLogo: bankLogos.federal,
-    interestRate: "8.95% - 12.25% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹4,00,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.4,
-    suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
-    benefit: "Digital loan processing",
-    benefitIcon: FieldTimeOutlined
-  },
-  {
-    id: 10,
-    name: "IndusInd Bank LAP",
-    bankName: "IndusInd Bank",
-    bankLogo: bankLogos.indusind,
-    interestRate: "8.85% - 12.00% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹5,00,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.5,
-    suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
-    benefit: "Overdraft facility available",
     benefitIcon: StarFilled
   },
   {
-    id: 11,
-    name: "Karur Vysya Bank LAP",
-    bankName: "Karur Vysya Bank",
-    bankLogo: bankLogos.kvb,
-    interestRate: "9.20% - 12.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹3,00,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 12 years",
-    rating: 4.2,
-    suitedFor: ["Self-Employed", "Business Owners"],
-    benefit: "Easy documentation",
-    benefitIcon: FileProtectOutlined
-  },
-  {
-    id: 12,
-    name: "Kotak Mahindra Bank LAP",
-    bankName: "Kotak Mahindra Bank",
-    bankLogo: bankLogos.kotak,
-    interestRate: "8.75% - 11.75% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹7,00,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.6,
+    id: 4,
+    name: "IDFC First Bank Business Loan",
+    bankName: "IDFC First Bank",
+    bankLogo: bankLogos.idfc,
+    interestRate: "14.00% - 19.00% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹40,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12-60 months",
+    rating: 4.5,
     suitedFor: ["Self-Employed", "Business Owners", "Professionals"],
     benefit: "Competitive interest rates",
     benefitIcon: PercentageOutlined
   },
   {
-    id: 13,
-    name: "RBL Bank LAP",
-    bankName: "RBL Bank",
-    bankLogo: bankLogos.rbl,
-    interestRate: "9.10% - 12.25% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹4,00,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 15 years",
-    rating: 4.3,
-    suitedFor: ["Self-Employed", "Business Owners"],
+    id: 5,
+    name: "Yes Bank Business Loan",
+    bankName: "Yes Bank",
+    bankLogo: bankLogos.yes,
+    interestRate: "15.00% - 21.00% p.a.",
+    processingFee: "Up to 2.50%",
+    maxAmount: "₹50,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-48 months",
+    rating: 4.4,
+    suitedFor: ["Self-Employed", "MSMEs", "Startups"],
     benefit: "Quick disbursement",
     benefitIcon: FieldTimeOutlined
   },
   {
+    id: 6,
+    name: "Bandhan Bank Business Loan",
+    bankName: "Bandhan Bank",
+    bankLogo: bankLogos.bandhan,
+    interestRate: "14.00% - 18.00% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹25,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12-36 months",
+    rating: 4.3,
+    suitedFor: ["Small Business", "Micro Enterprises"],
+    benefit: "Easy documentation",
+    benefitIcon: FileProtectOutlined
+  },
+  {
+    id: 7,
+    name: "CSB Bank Business Loan",
+    bankName: "CSB Bank",
+    bankLogo: bankLogos.csb,
+    interestRate: "14.50% - 19.00% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹30,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-48 months",
+    rating: 4.2,
+    suitedFor: ["Small Business", "Traders", "Manufacturers"],
+    benefit: "Flexible loan terms",
+    benefitIcon: StarFilled
+  },
+  {
+    id: 8,
+    name: "DCB Bank Business Loan",
+    bankName: "DCB Bank",
+    bankLogo: bankLogos.dcb,
+    interestRate: "15.00% - 20.00% p.a.",
+    processingFee: "Up to 2.5%",
+    maxAmount: "₹40,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-60 months",
+    rating: 4.3,
+    suitedFor: ["SMEs", "Traders", "Service Providers"],
+    benefit: "Quick processing",
+    benefitIcon: FieldTimeOutlined
+  },
+  {
+    id: 9,
+    name: "Federal Bank Business Loan",
+    bankName: "Federal Bank",
+    bankLogo: bankLogos.federal,
+    interestRate: "14.00% - 18.50% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹50,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "12-60 months",
+    rating: 4.4,
+    suitedFor: ["SMEs", "Manufacturers", "Service Sector"],
+    benefit: "Competitive rates",
+    benefitIcon: PercentageOutlined
+  },
+  {
+    id: 10,
+    name: "IndusInd Bank Business Loan",
+    bankName: "IndusInd Bank",
+    bankLogo: bankLogos.indusind,
+    interestRate: "15.50% - 21.00% p.a.",
+    processingFee: "Up to 2.25%",
+    maxAmount: "₹75,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "12-60 months",
+    rating: 4.5,
+    suitedFor: ["Medium Enterprises", "Traders", "Manufacturers"],
+    benefit: "High loan amount",
+    benefitIcon: DollarOutlined
+  },
+  {
+    id: 11,
+    name: "Karur Vysya Bank Business Loan",
+    bankName: "Karur Vysya Bank",
+    bankLogo: bankLogos.kvb,
+    interestRate: "14.50% - 19.50% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹35,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-48 months",
+    rating: 4.2,
+    suitedFor: ["Small Business", "Retailers", "Service Providers"],
+    benefit: "Easy documentation",
+    benefitIcon: FileProtectOutlined
+  },
+  {
+    id: 12,
+    name: "Kotak Mahindra Bank Business Loan",
+    bankName: "Kotak Mahindra Bank",
+    bankLogo: bankLogos.kotak,
+    interestRate: "15.00% - 20.00% p.a.",
+    processingFee: "Up to 2.5%",
+    maxAmount: "₹75,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "12-60 months",
+    rating: 4.6,
+    suitedFor: ["SMEs", "Startups", "Professionals"],
+    benefit: "Digital process",
+    benefitIcon: FieldTimeOutlined
+  },
+  {
+    id: 13,
+    name: "RBL Bank Business Loan",
+    bankName: "RBL Bank",
+    bankLogo: bankLogos.rbl,
+    interestRate: "15.00% - 20.50% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹40,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-48 months",
+    rating: 4.3,
+    suitedFor: ["SMEs", "Traders", "Service Sector"],
+    benefit: "Flexible terms",
+    benefitIcon: StarFilled
+  },
+  {
     id: 14,
-    name: "South Indian Bank LAP",
+    name: "South Indian Bank Business Loan",
     bankName: "South Indian Bank",
     bankLogo: bankLogos.sib,
-    interestRate: "9.25% - 12.50% p.a.",
-    processingFee: "Up to 1%",
-    maxAmount: "₹3,50,00,000",
-    minAmount: "₹3,00,000",
-    tenure: "Up to 12 years",
+    interestRate: "14.50% - 19.00% p.a.",
+    processingFee: "Up to 2%",
+    maxAmount: "₹30,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12-48 months",
     rating: 4.2,
-    suitedFor: ["Self-Employed", "Business Owners"],
-    benefit: "Flexible loan terms",
-    benefitIcon: DollarOutlined
+    suitedFor: ["Small Business", "Traders", "Manufacturers"],
+    benefit: "Quick approval",
+    benefitIcon: FieldTimeOutlined
   }
 ];
 
 const loanDetails: LoanDetailsMap = {
-  "HDFC Bank LAP": {
+  "HDFC Bank Business Loan": {
     features: [
-      "Property value up to ₹10 crore",
-      "Flexible repayment options",
-      "Balance transfer facility",
-      "Part prepayment facility",
+      "Digital onboarding process",
+      "Doorstep document collection",
+      "Pre-approved offers for existing customers",
+      "Flexi loan facility",
       "Online account management"
     ],
     benefits: [
-      "Lower interest rates compared to personal loans",
-      "Tax benefits under Section 37(1)",
-      "Overdraft facility available",
-      "No restriction on end use",
-      "Quick processing"
-    ],
-    fees: {
-      processing: "Up to 1% of loan amount",
-      prepayment: "Nil for floating rate loans",
-      latePenalty: "2% per month on unpaid amount"
-    },
-    eligibility: {
-      salaried: [
-        "Age: 25-60 years",
-        "Minimum income: ₹50,000 per month",
-        "Property age < 50 years",
-        "Clear property title",
-        "Minimum property value: ₹20 lakhs"
-      ],
-      selfEmployed: [
-        "Age: 25-65 years",
-        "Business vintage: 3+ years",
-        "ITR for last 3 years",
-        "Property clear of all encumbrances",
-        "Minimum property value: ₹20 lakhs"
-      ]
-    },
-    documents: {
-      salaried: [
-        "Property documents",
-        "KYC documents",
-        "Latest 6 months salary slips",
-        "Last 12 months bank statements",
-        "Property valuation report"
-      ],
-      selfEmployed: [
-        "Property documents",
-        "KYC documents",
-        "Last 3 years ITR with computation",
-        "Last 12 months bank statements",
-        "Business registration proof",
-        "Property valuation report"
-      ]
-    },
-    maxAmount: "₹10,00,00,000",
-    minAmount: "₹5,00,000",
-    tenure: "Up to 15 years",
-    interestRate: "8.65% - 11.50% p.a."
-  },
-  "ICICI Bank LAP": {
-    features: [
-      "Property value up to ₹8 crore",
-      "Overdraft facility available",
-      "Online loan management",
-      "Doorstep service",
-      "Balance transfer facility"
-    ],
-    benefits: [
+      "Quick disbursement within 48 hours",
+      "Minimal documentation",
+      "No collateral required",
       "Competitive interest rates",
-      "Tax benefits available",
-      "No foreclosure charges",
-      "Quick disbursement",
-      "Flexible repayment options"
+      "Dedicated relationship manager"
     ],
     fees: {
-      processing: "Up to 1% of loan amount",
-      prepayment: "Nil for floating rate loans",
-      latePenalty: "2% per month on unpaid amount"
+      processing: "Up to 3% of loan amount",
+      prepayment: "4% of principal outstanding",
+      latePenalty: "2% per month on overdue amount"
     },
     eligibility: {
       salaried: [
-        "Age: 25-58 years",
+        "Age: 21-65 years",
         "Minimum income: ₹40,000 per month",
-        "Property age < 40 years",
-        "Clear property title",
-        "Minimum property value: ₹15 lakhs"
+        "Employment: Minimum 3 years total experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
       ],
       selfEmployed: [
-        "Age: 25-65 years",
-        "Business vintage: 5+ years",
-        "ITR for last 3 years",
-        "Property clear of all encumbrances",
-        "Minimum property value: ₹15 lakhs"
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹40 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
       ]
     },
     documents: {
       salaried: [
-        "Property papers",
-        "Identity & address proof",
+        "PAN Card",
+        "Aadhaar Card",
         "Latest 3 months salary slips",
         "Last 12 months bank statements",
-        "Property valuation report"
+        "Form 16 for last 2 years"
       ],
       selfEmployed: [
-        "Property papers",
-        "Identity & address proof",
-        "Last 3 years ITR",
+        "Business registration proof",
         "Last 12 months bank statements",
-        "Business proof",
-        "Property valuation report"
+        "Last 2 years ITR",
+        "GST returns",
+        "KYC documents",
+        "Business financials"
       ]
     },
-    maxAmount: "₹8,00,00,000",
+    maxAmount: "₹75,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "14.00% - 19.50% p.a."
+  },
+  "ICICI Bank Business Loan": {
+    features: [
+      "End-to-end digital process",
+      "Business assessment program",
+      "Flexible repayment options",
+      "Overdraft facility",
+      "Mobile banking access"
+    ],
+    benefits: [
+      "Approval within 24 hours",
+      "Zero collateral requirement",
+      "Balance transfer facility",
+      "Special rates for existing customers",
+      "Business advisory services"
+    ],
+    fees: {
+      processing: "Up to 2.50% of loan amount",
+      prepayment: "3% of principal outstanding",
+      latePenalty: "2.5% per month on overdue amount"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹35,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 725+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 2+ years",
+        "Minimum turnover: ₹30 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 725+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "6 months bank statements",
+        "2 years ITR",
+        "GST registration",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹1,00,00,000",
     minAmount: "₹3,00,000",
-    tenure: "Up to 18 years",
-    interestRate: "8.75% - 12.00% p.a."
+    tenure: "12 to 48 months",
+    interestRate: "15.00% - 19.00% p.a."
+  },
+  "Axis Bank Business Loan": {
+    features: [
+      "Online application process",
+      "Customized repayment plans",
+      "Working capital option",
+      "Business credit card",
+      "Internet banking facility"
+    ],
+    benefits: [
+      "48-hour disbursement",
+      "No security required",
+      "Flexible tenure options",
+      "Relationship pricing benefits",
+      "Tax benefits available"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "3% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹35 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration documents",
+        "Bank statements",
+        "ITR returns",
+        "GST returns",
+        "Address proof",
+        "Identity proof"
+      ]
+    },
+    maxAmount: "₹50,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "15.50% - 20.00% p.a."
+  },
+  "IDFC First Bank Business Loan": {
+    features: [
+      "Paperless approval process",
+      "Flexible EMI options",
+      "Online loan management",
+      "Business health assessment",
+      "Mobile app access"
+    ],
+    benefits: [
+      "Same day approval",
+      "No collateral needed",
+      "Lower interest rates",
+      "Zero foreclosure charges",
+      "Free advisory services"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "Nil",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 23-65 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 23-65 years",
+        "Business vintage: 2+ years",
+        "Minimum turnover: ₹25 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "Bank statements",
+        "ITR documents",
+        "GST returns",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "14.00% - 19.00% p.a."
+  },
+  "Yes Bank Business Loan": {
+    features: [
+      "Digital loan journey",
+      "Flexible repayment structure",
+      "Business expansion focus",
+      "Working capital support",
+      "Online account access"
+    ],
+    benefits: [
+      "Quick processing",
+      "Unsecured funding",
+      "Competitive rates",
+      "Minimal documentation",
+      "Expert guidance"
+    ],
+    fees: {
+      processing: "Up to 2.50% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2.5% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 2+ years",
+        "Minimum turnover: ₹30 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Financial documents"
+      ]
+    },
+    maxAmount: "₹50,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 48 months",
+    interestRate: "15.00% - 21.00% p.a."
+  },
+  "Bandhan Bank Business Loan": {
+    features: [
+      "Quick loan approval",
+      "Simple documentation",
+      "Dedicated relationship manager",
+      "Flexible repayment options",
+      "Door-step service"
+    ],
+    benefits: [
+      "Fast processing",
+      "No hidden charges",
+      "Easy EMI options",
+      "Business growth support",
+      "Customized solutions"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 650+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 2+ years",
+        "Minimum turnover: ₹20 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 650+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "6 months bank statements",
+        "ITR returns",
+        "GST documents",
+        "KYC documents",
+        "Business address proof"
+      ]
+    },
+    maxAmount: "₹25,00,000",
+    minAmount: "₹1,00,000",
+    tenure: "12 to 36 months",
+    interestRate: "14.00% - 18.00% p.a."
+  },
+  "CSB Bank Business Loan": {
+    features: [
+      "Online application facility",
+      "Flexible loan structure",
+      "Business expansion support",
+      "Working capital assistance",
+      "Digital banking services"
+    ],
+    benefits: [
+      "Quick approval process",
+      "Minimal documentation",
+      "Competitive interest rates",
+      "Flexible repayment options",
+      "Dedicated support"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 675+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹24 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 675+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹30,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 48 months",
+    interestRate: "14.50% - 19.00% p.a."
+  },
+  "DCB Bank Business Loan": {
+    features: [
+      "Digital loan process",
+      "Customized repayment plans",
+      "Business growth focus",
+      "Online account management",
+      "Flexible loan terms"
+    ],
+    benefits: [
+      "Quick loan approval",
+      "Minimal documentation",
+      "Competitive rates",
+      "No hidden charges",
+      "Expert guidance"
+    ],
+    fees: {
+      processing: "Up to 2.5% of loan amount",
+      prepayment: "3% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹30 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "Bank statements",
+        "ITR returns",
+        "GST returns",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "15.00% - 20.00% p.a."
+  },
+  "Federal Bank Business Loan": {
+    features: [
+      "Online application process",
+      "Flexible repayment options",
+      "Business expansion support",
+      "Digital banking facilities",
+      "Relationship manager"
+    ],
+    benefits: [
+      "Quick processing",
+      "No collateral required",
+      "Competitive rates",
+      "Minimal documentation",
+      "Business advisory"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹25 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹50,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "14.00% - 18.50% p.a."
+  },
+  "IndusInd Bank Business Loan": {
+    features: [
+      "Digital loan application",
+      "Flexible repayment structure",
+      "Overdraft facility",
+      "Business credit card option",
+      "Online account management"
+    ],
+    benefits: [
+      "Fast approval process",
+      "No security required",
+      "Competitive interest rates",
+      "Balance transfer facility",
+      "Dedicated relationship manager"
+    ],
+    fees: {
+      processing: "Up to 2.25% of loan amount",
+      prepayment: "3% of outstanding amount",
+      latePenalty: "2.5% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹35,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹35 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹75,00,000",
+    minAmount: "₹5,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "15.50% - 21.00% p.a."
+  },
+  "Karur Vysya Bank Business Loan": {
+    features: [
+      "Online application facility",
+      "Customized repayment options",
+      "Working capital support",
+      "Digital banking services",
+      "Business advisory support"
+    ],
+    benefits: [
+      "Quick processing",
+      "No collateral up to certain limit",
+      "Competitive rates",
+      "Minimal documentation",
+      "Dedicated support team"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 675+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹24 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 675+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Business address proof"
+      ]
+    },
+    maxAmount: "₹35,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 48 months",
+    interestRate: "14.50% - 19.50% p.a."
+  },
+  "Kotak Mahindra Bank Business Loan": {
+    features: [
+      "Digital onboarding process",
+      "Flexible repayment options",
+      "Overdraft facility",
+      "Business health assessment",
+      "Online loan management"
+    ],
+    benefits: [
+      "Quick approval within 24 hours",
+      "No collateral required",
+      "Competitive interest rates",
+      "Special offers for existing customers",
+      "Expert business guidance"
+    ],
+    fees: {
+      processing: "Up to 2.5% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2.5% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹30 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Financial statements"
+      ]
+    },
+    maxAmount: "₹75,00,000",
+    minAmount: "₹3,00,000",
+    tenure: "12 to 60 months",
+    interestRate: "15.00% - 20.00% p.a."
+  },
+  "RBL Bank Business Loan": {
+    features: [
+      "Digital loan process",
+      "Flexible EMI options",
+      "Working capital support",
+      "Online account access",
+      "Business credit card facility"
+    ],
+    benefits: [
+      "Quick disbursement",
+      "No security required",
+      "Competitive rates",
+      "Minimal documentation",
+      "Dedicated support"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "3% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹30,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 700+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹25 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 700+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business proof",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Financial documents"
+      ]
+    },
+    maxAmount: "₹40,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 48 months",
+    interestRate: "15.00% - 20.50% p.a."
+  },
+  "South Indian Bank Business Loan": {
+    features: [
+      "Online application process",
+      "Flexible repayment structure",
+      "Business expansion focus",
+      "Digital banking services",
+      "Relationship manager support"
+    ],
+    benefits: [
+      "Fast processing",
+      "No collateral up to certain limit",
+      "Competitive interest rates",
+      "Minimal documentation",
+      "Expert guidance"
+    ],
+    fees: {
+      processing: "Up to 2% of loan amount",
+      prepayment: "2% of outstanding amount",
+      latePenalty: "2% per month"
+    },
+    eligibility: {
+      salaried: [
+        "Age: 21-65 years",
+        "Minimum income: ₹25,000 per month",
+        "Employment: Minimum 2 years experience",
+        "Credit score: 675+",
+        "Residence stability: At least 1 year"
+      ],
+      selfEmployed: [
+        "Age: 21-65 years",
+        "Business vintage: 3+ years",
+        "Minimum turnover: ₹20 lakhs per annum",
+        "ITR for last 2 years",
+        "Credit score: 675+"
+      ]
+    },
+    documents: {
+      salaried: [
+        "PAN Card",
+        "Aadhaar Card",
+        "Latest 3 months salary slips",
+        "Last 6 months bank statements",
+        "Form 16"
+      ],
+      selfEmployed: [
+        "Business registration",
+        "Bank statements",
+        "ITR returns",
+        "GST registration",
+        "KYC documents",
+        "Business proof"
+      ]
+    },
+    maxAmount: "₹30,00,000",
+    minAmount: "₹2,00,000",
+    tenure: "12 to 48 months",
+    interestRate: "14.50% - 19.00% p.a."
   }
 };
 
@@ -967,7 +1663,7 @@ const BLBankingPartners: React.FC = () => {
   };
 
   const handleCheckEligibility = () => {
-    navigate('/loans#loan-application');
+    navigate('/loans?type=business#loan-application');
   };
 
   const handleDownloadPDF = async (): Promise<void> => {
@@ -1006,15 +1702,15 @@ const BLBankingPartners: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Loan Against Property Made Simple
+            Business Loans Made Simple
           </HeroTitle>
           <HeroSubtitle
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Unlock the value of your property with loans from India's leading banks. Get higher loan amounts, 
-            lower interest rates, and longer repayment tenures.
+            Compare and choose from India's leading banks. Get quick approvals, 
+            competitive interest rates, and flexible repayment options for your business growth.
           </HeroSubtitle>
           <HeroButtons
             initial={{ opacity: 0, y: 20 }}
@@ -1040,16 +1736,16 @@ const BLBankingPartners: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <StatItem>
-              <StatValue>₹10Cr+</StatValue>
+              <StatValue>₹50L+</StatValue>
               <StatLabel>Maximum Loan Amount</StatLabel>
             </StatItem>
             <StatItem>
-              <StatValue>8.65%</StatValue>
+              <StatValue>10.49%</StatValue>
               <StatLabel>Interest Rate Starting</StatLabel>
             </StatItem>
             <StatItem>
-              <StatValue>18 Yrs</StatValue>
-              <StatLabel>Maximum Tenure</StatLabel>
+              <StatValue>3-5 Days</StatValue>
+              <StatLabel>Fast Processing</StatLabel>
             </StatItem>
           </HeroStats>
         </HeroText>
@@ -1087,9 +1783,8 @@ const BLBankingPartners: React.FC = () => {
           <b></b>
           <b></b>
           <SectionTitle>
-            Loans Against Property - Banking Partners
+            Business Loans - Banking Partners
           </SectionTitle>
-
           {personalLoans.map((loan: Loan) => (
             <motion.div
               key={loan.id}

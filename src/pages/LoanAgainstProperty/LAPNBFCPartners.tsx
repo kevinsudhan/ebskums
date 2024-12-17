@@ -2152,7 +2152,7 @@ const PLNBFCPartners: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Personal Loans Made Simple
+            Loan Against Property Made Simple
           </HeroTitle>
           <HeroSubtitle
             initial={{ opacity: 0, y: 20 }}
