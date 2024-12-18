@@ -5,6 +5,7 @@ import { Card, Row, Col, Typography, Form, Input, Select, Button } from 'antd';
 import { BankOutlined, SafetyOutlined, DollarOutlined, HomeOutlined, CalculatorOutlined, RiseOutlined, CheckCircleFilled, UserOutlined, ShopOutlined, SwapOutlined, GoldOutlined } from '@ant-design/icons';
 import { typography, colors, effects, spacing, breakpoints } from '../../styles/theme';
 import Footer from '../../components/Footer/Footer';
+import loanHeroImage from '../../assets/images/hero/loan-main-hero.png';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -884,8 +885,7 @@ const Loans: React.FC = () => {
           </div>
         </HeroContent>
         <HeroImage>
-          <img src="/src/assets/images/hero/loan-main-hero.png" alt="Loan Services" />
-        </HeroImage>
+        <img src={loanHeroImage} alt="Loan Services" />        </HeroImage>
       </HeroSection>
 
       <LoanTypesSection>
