@@ -1,250 +1,162 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Typography } from 'antd';
+import { CreditCardOutlined, CheckCircleFilled, StarFilled } from '@ant-design/icons';
+import { useInView } from 'react-intersection-observer';
+import CountUp from 'react-countup';
 
-// Import images
-import creditCardHero from '../../assets/images/hero/credit-card-hero.png';
-import personalLoanHeroImg from '../../assets/images/hero/personal-loan-hero.jpg?url';
-import homeLoanHeroImg from '../../assets/images/hero/home-loan-hero.jpeg?url';
-
-const personalLoanHero = new URL('../../assets/images/hero/personal-loan-hero.jpg', import.meta.url).href;
-const homeLoanHero = new URL('../../assets/images/hero/home-loan-hero.jpeg', import.meta.url).href;
+const { Title, Text } = Typography;
 
 const HeroSection = styled.section`
-  height: 650px;
+  padding: 100px 5% 150px;
+  background: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
   position: relative;
-  overflow: hidden;
-  background: #f8f9fa;
-  margin: 130px 40px 0 40px;
-  border-radius: 24px;
-`;
-
-const CarouselContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  cursor: grab;
-
-  &:active {
-    cursor: grabbing;
-  }
-`;
-
-const Slide = styled.div<{ $backgroundImage: string }>`
-  min-width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 5%;
-  position: relative;
+  justify-content: space-between;
+  min-height: 600px;
+  margin-top: 0;
+  padding-top: 120px;
   overflow: hidden;
 
-  &::before {
-    content: '';
+  .waves-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    background-image: url(${props => props.$backgroundImage});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.85);
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background-repeat: repeat-x;
+    transform-origin: center bottom;
+  }
+
+  .wave-back {
+    opacity: 0.15;
+    fill: #fff;
+    animation: wave 25s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  }
+
+  .wave-back2 {
+    opacity: 0.2;
+    fill: #fff;
+    animation: wave 22s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation-delay: -1s;
+  }
+
+  .wave-middle {
+    opacity: 0.4;
+    fill: #fff;
+    animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation-delay: -2s;
+  }
+
+  .wave-middle2 {
+    opacity: 0.6;
+    fill: #fff;
+    animation: wave 15s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation-delay: -3s;
+  }
+
+  .wave-front {
+    opacity: 1;
+    fill: #ffffff;
+    animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation-delay: -4s;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0) translateZ(0);
+    }
+    100% {
+      transform: translateX(-50%) translateZ(0);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 30px;
+    padding: 100px 5% 40px;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 500px;
+    padding: 80px 5% 120px;
   }
 `;
 
-const TextContent = styled.div`
-  max-width: 800px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  z-index: 2;
-  text-align: center;
+const HeroContent = styled.div`
+  position: relative;
+  z-index: 10;
   color: white;
-`;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 20px;
 
-const Title = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-`;
+  h1 {
+    color: white !important;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-const Description = styled.p`
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-`;
-
-const NavigationButton = styled(Button)<{ $direction: 'left' | 'right' }>`
-  position: absolute;
-  top: 50%;
-  ${props => props.$direction}: 20px;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  z-index: 4;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  svg {
-    font-size: 20px;
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 `;
 
-const Indicators = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 4;
-`;
 
-const Indicator = styled.div<{ $active: boolean }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: ${props => props.$active ? 'white' : 'rgba(255, 255, 255, 0.5)'};
-  cursor: pointer;
-  transition: all 0.3s ease;
-`;
-
-const slides = [
-  {
-    image: creditCardHero,
-    title: 'Empower Your Wallet, Unlock Your World!',
-    description: 'Need a Credit Card? Contact Us Today for Tailored Solutions!',
-  },
-  {
-    image: personalLoanHero,
-    title: 'Your dreams, our trust. Personal loans made simple',
-    description: 'Customizable repayment options and optimized interest rates to finance your next major purchase or planned travel.',
-  },
-  {
-    image: homeLoanHero,
-    title: 'Building dreams, one home at a time',
-    description: 'Transform your homeownership dreams into reality with our flexible home loan solutions.',
-  },
-];
 
 const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startPos, setStartPos] = useState(0);
-  const [currentTranslate, setCurrentTranslate] = useState(0);
-  const [prevTranslate, setPrevTranslate] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isDragging) {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isDragging]);
-
-  useEffect(() => {
-    setCurrentTranslate(-currentSlide * 100);
-    setPrevTranslate(-currentSlide * 100);
-  }, [currentSlide]);
-
-  const handleDragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    setIsDragging(true);
-    setStartPos(('touches' in e) ? e.touches[0].clientX : e.clientX);
-  };
-
-  const handleDragMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-    
-    const currentPosition = ('touches' in e) ? e.touches[0].clientX : e.clientX;
-    const diff = (currentPosition - startPos) * 100 / (containerRef.current?.offsetWidth || 1);
-    const newTranslate = prevTranslate + diff;
-    
-    setCurrentTranslate(newTranslate);
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-    const threshold = 20;
-    const diff = currentTranslate - prevTranslate;
-    
-    if (Math.abs(diff) > threshold) {
-      if (diff > 0 && currentSlide > 0) {
-        setCurrentSlide(currentSlide - 1);
-      } else if (diff < 0 && currentSlide < slides.length - 1) {
-        setCurrentSlide(currentSlide + 1);
-      } else {
-        setCurrentTranslate(prevTranslate);
-      }
-    } else {
-      setCurrentTranslate(prevTranslate);
-    }
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
 
   return (
     <HeroSection>
-      <CarouselContainer
-        ref={containerRef}
-        style={{ transform: `translateX(${currentTranslate}%)` }}
-        onMouseDown={handleDragStart}
-        onMouseMove={handleDragMove}
-        onMouseUp={handleDragEnd}
-        onMouseLeave={handleDragEnd}
-        onTouchStart={handleDragStart}
-        onTouchMove={handleDragMove}
-        onTouchEnd={handleDragEnd}
-      >
-        {slides.map((slide, index) => (
-          <Slide key={index} $backgroundImage={slide.image}>
-            <TextContent>
-              <Title>{slide.title}</Title>
-              <Description>{slide.description}</Description>
-            </TextContent>
-          </Slide>
-        ))}
-      </CarouselContainer>
+      <div className="waves-container">
+        <svg className="wave wave-back" viewBox="0 0 2880 320" preserveAspectRatio="none">
+          <path d="M0,192 C480,192 720,256 960,256 C1200,256 1440,192 1680,192 C1920,192 2160,256 2400,256 C2640,256 2880,192 2880,192 L2880,320 L0,320 Z" />
+        </svg>
+        <svg className="wave wave-back2" viewBox="0 0 2880 320" preserveAspectRatio="none">
+          <path d="M0,208 C480,208 720,144 960,144 C1200,144 1440,208 1680,208 C1920,208 2160,144 2400,144 C2640,144 2880,208 2880,208 L2880,320 L0,320 Z" />
+        </svg>
+        <svg className="wave wave-middle" viewBox="0 0 2880 320" preserveAspectRatio="none">
+          <path d="M0,224 C480,224 720,128 960,128 C1200,128 1440,224 1680,224 C1920,224 2160,128 2400,128 C2640,128 2880,224 2880,224 L2880,320 L0,320 Z" />
+        </svg>
+        <svg className="wave wave-middle2" viewBox="0 0 2880 320" preserveAspectRatio="none">
+          <path d="M0,240 C480,240 720,140 960,140 C1200,140 1440,240 1680,240 C1920,240 2160,140 2400,140 C2640,140 2880,240 2880,240 L2880,320 L0,320 Z" />
+        </svg>
+        <svg className="wave wave-front" viewBox="0 0 2880 320" preserveAspectRatio="none">
+          <path d="M0,260 C480,260 720,160 960,160 C1200,160 1440,260 1680,260 C1920,260 2160,160 2400,160 C2640,160 2880,260 2880,260 L2880,320 L0,320 Z" />
+        </svg>
+      </div>
 
-      <NavigationButton $direction="left" onClick={prevSlide} style={{ opacity: currentSlide === 0 ? 0.5 : 1 }}>
-        <LeftOutlined />
-      </NavigationButton>
-      <NavigationButton $direction="right" onClick={nextSlide} style={{ opacity: currentSlide === slides.length - 1 ? 0.5 : 1 }}>
-        <RightOutlined />
-      </NavigationButton>
+      <HeroContent>
+        <Title level={1}>
+          Transform Your Financial Journey
+        </Title>
+        <Text style={{ color: 'white', fontSize: '1.2rem', display: 'block', marginBottom: '1.5rem' }}>
+          Discover exclusive financial solutions tailored to your needs. Apply now and elevate your financial journey with EBS Finance.
+        </Text>
+        
+        
+      </HeroContent>
 
-      <Indicators>
-        {slides.map((_, index) => (
-          <Indicator
-            key={index}
-            $active={currentSlide === index}
-            onClick={() => setCurrentSlide(index)}
-          />
-        ))}
-      </Indicators>
+      
     </HeroSection>
   );
 };

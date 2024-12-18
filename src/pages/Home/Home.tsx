@@ -2,28 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 import Hero from '../../components/Hero/Hero';
 import Services from '../../components/Services/Services';
-import Metrics from '../../components/Metrics/Metrics';
 import Awards from '../../components/Awards/Awards';
 import Partners from '../../components/Partners/Partners';
+import Metrics from '../../components/Metrics/Metrics';
 
 const HomeContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  background-color: #ffffff;
+  position: relative;
 `;
 
-const ServicesWrapper = styled.div`
-  margin-top: 60px;
+const MetricsWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 10;
+  margin-top: -150px;
 `;
 
 const Home: React.FC = () => {
   return (
     <HomeContainer>
       <Hero />
-      <ServicesWrapper>
-        <Services />
-      </ServicesWrapper>
-      <Metrics />
+      <MetricsWrapper>
+        <Metrics />
+      </MetricsWrapper>
+      <Services />
       <Awards />
       <Partners />
     </HomeContainer>

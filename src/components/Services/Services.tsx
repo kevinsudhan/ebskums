@@ -10,7 +10,7 @@ import {
   HoverCard,
   fadeInVariants,
   containerVariants,
-  slideVariants
+  slideVariants,
 } from '../Animations/AnimatedComponents';
 
 // Import images
@@ -23,20 +23,17 @@ import lifeInsuranceImg from '../../assets/images/services/life-insurance.jpg';
 import goldLoanImg from '../../assets/images/services/gold-loan.jpg';
 import shortTermLoanImg from '../../assets/images/services/short-term-loan.jpg';
 
-const ServicesSection = styled(AnimatedSection)`
-  padding: 100px 5%;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+const ServicesSection = styled(motion.section)`
+  padding: 120px 5% 80px;
   position: relative;
-  overflow: hidden;
+  background-color: #ffffff;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 148, 217, 0.2), transparent);
+  @media (max-width: 768px) {
+    padding: 100px 4% 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 80px 3% 40px;
   }
 `;
 
@@ -57,6 +54,14 @@ const Title = styled(motion.h2)`
   position: relative;
   display: inline-block;
 
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -67,6 +72,11 @@ const Title = styled(motion.h2)`
     height: 3px;
     background: linear-gradient(90deg, #0094d9, #0077b6);
     border-radius: 2px;
+
+    @media (max-width: 480px) {
+      width: 40px;
+      height: 2px;
+    }
   }
 `;
 
@@ -76,11 +86,39 @@ const Subtitle = styled(motion.p)`
   max-width: 600px;
   margin: 2rem auto 0;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin: 1.5rem auto 0;
+    padding: 0 20px;
+  }
 `;
 
 const FilterContainer = styled(motion.div)`
   text-align: center;
   margin-bottom: 40px;
+  padding: 0 15px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+  }
 
   .ant-radio-group {
     display: inline-flex;
@@ -90,6 +128,12 @@ const FilterContainer = styled(motion.div)`
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     gap: 4px;
 
+    @media (max-width: 768px) {
+      display: flex;
+      width: max-content;
+      margin: 0 auto;
+    }
+
     .ant-radio-button-wrapper {
       height: 36px;
       line-height: 36px;
@@ -98,6 +142,14 @@ const FilterContainer = styled(motion.div)`
       padding: 0 24px;
       border-radius: 18px;
       transition: all 0.3s ease;
+      white-space: nowrap;
+
+      @media (max-width: 768px) {
+        height: 32px;
+        line-height: 32px;
+        padding: 0 16px;
+        font-size: 0.9rem;
+      }
 
       &:not(:first-child)::before {
         display: none;
@@ -132,12 +184,14 @@ const CardsGrid = styled(motion.div)`
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    padding: 0 15px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 0 15px;
+    max-width: 400px;
+    gap: 20px;
+    padding: 0 10px;
   }
 `;
 
@@ -146,9 +200,14 @@ const ServiceCard = styled(HoverCard)`
   display: flex;
   flex-direction: column;
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
 
   &:hover {
     transform: translateY(-4px);
@@ -157,13 +216,21 @@ const ServiceCard = styled(HoverCard)`
 `;
 
 const CardImage = styled(motion.div)<{ $backgroundImage: string }>`
-  height: 160px;
+  height: 180px;
   background-image: url(${props => props.$backgroundImage});
   background-size: cover;
   background-position: center;
-  border-radius: 8px 8px 0 0;
+  border-radius: 12px 12px 0 0;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 160px;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+  }
 
   &::before {
     content: '';
@@ -183,11 +250,15 @@ const CardImage = styled(motion.div)<{ $backgroundImage: string }>`
 `;
 
 const CardContent = styled(motion.div)`
-  padding: 16px;
+  padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 
   &::before {
     content: '';
@@ -199,11 +270,6 @@ const CardContent = styled(motion.div)`
     height: 2px;
     background: linear-gradient(90deg, #0094d9, #0077b6);
     border-radius: 1px;
-    transition: width 0.3s ease;
-  }
-
-  ${ServiceCard}:hover &::before {
-    width: 50px;
   }
 `;
 
