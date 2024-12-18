@@ -7,7 +7,13 @@ import { typography, colors, effects, spacing, breakpoints } from '../../styles/
 import creditCardImg from '../../assets/images/services/credit-card.jpg';
 import insuranceHeroImg from '../../assets/images/hero/Sitemap Whiteboard in Green Purple Basic Style (13).png';
 import Footer from '../../components/Footer/Footer';
-
+import healthInsImg from '../../assets/images/hero/healthins.jpg';
+import personalInsImg from '../../assets/images/hero/personal insurance.jpg';
+import generalInsImg from '../../assets/images/hero/general insurance.jpg';
+import riskManagementImg from '../../assets/images/hero/risk management.jpg';
+import wealthPreservationImg from '../../assets/images/hero/wealth preservation.jpg';
+import peacefulMindImg from '../../assets/images/hero/peaceful mind.jpg';
+import lawComplianceImg from '../../assets/images/hero/law compliance.jpg';
 const { Title, Text } = Typography;
 const { Option } = Select;
 
@@ -960,34 +966,33 @@ const Insurance: React.FC = () => {
   const insuranceCards = [
     {
       title: 'Health Insurance',
-      image: '/src/assets/images/hero/healthins.jpg',
+      image: healthInsImg,
     },
     {
       title: 'Personal Insurance',
-      image: '/src/assets/images/hero/personal insurance.jpg',
+      image: personalInsImg,
     },
     {
       title: 'General Insurance',
-      image: '/src/assets/images/hero/general insurance.jpg',
+      image: generalInsImg,
     }
   ];
-
   const whyBeInsuredCards = [
     {
       title: 'Risk and Finance Management',
-      image: '/src/assets/images/hero/risk management.jpg',
+      image: riskManagementImg,
     },
     {
       title: 'Wealth Generation',
-      image: '/src/assets/images/hero/wealth preservation.jpg',
+      image: wealthPreservationImg,
     },
     {
       title: 'Peace of Mind and Security',
-      image: '/src/assets/images/hero/peaceful mind.jpg',
+      image: peacefulMindImg,
     },
     {
       title: 'Legal and Regulatory Compliance',
-      image: '/src/assets/images/hero/law compliance.jpg',
+      image: lawComplianceImg,
     }
   ];
 
