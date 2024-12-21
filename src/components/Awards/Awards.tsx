@@ -1,109 +1,112 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import goldenLaurel from '../../assets/images/golden laurel.png';
+import { Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { gsap } from 'gsap';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
+import goldenLaurel from '../../assets/images/golden laurel.png';
+
+const { Title } = Typography;
 
 const AwardsSection = styled.section`
   padding: 60px 0;
-  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
-  position: relative;
+  background: #f8f9fa;
   overflow: hidden;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
 `;
 
 const Container = styled.div`
-  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 20px;
   position: relative;
 `;
 
-const Title = styled.h2`
+const AwardsTitle = styled(Title)`
   text-align: center;
-  font-size: 2.5rem;
-  color: #333333;
-  margin-bottom: 40px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #0094d9, #0077b6);
+  margin-bottom: 40px !important;
+  color: #333 !important;
+
+  @media (max-width: 768px) {
+    font-size: 24px !important;
+    margin-bottom: 30px !important;
   }
 `;
 
-const CarouselContainer = styled.div`
+const AwardsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  overflow: hidden;
+  gap: 20px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+    height: 400px;
+    overflow: hidden;
+  }
 `;
 
-const CarouselWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 40px 0;
-  
-  .cards {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+const CardContainer = styled(motion.div)`
+  @media (max-width: 768px) {
     position: relative;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px;
-    
-    li {
-      position: absolute;
-      width: 340px;
-      transition: all 0.5s ease;
-      
-      &.active {
-        z-index: 2;
-      }
-    }
   }
 `;
 
-const AwardCard = styled.div`
-  background: #ffffff;
-  backdrop-filter: blur(10px);
+const AwardCard = styled(motion.div)`
+  background: white;
+  padding: 30px;
   border-radius: 20px;
-  padding: 25px;
-  width: 340px;
-  height: 340px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 300px;
   text-align: center;
-  transition: all 0.4s ease;
 
-  &:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 480px) {
-    min-width: 300px;
-    width: 300px;
-    height: 300px;
+  @media (max-width: 768px) {
+    width: 90%;
     padding: 20px;
+    margin: 0 auto;
+  }
+`;
+
+const AwardIcon = styled.div`
+  font-size: 40px;
+  color: #0077b6;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+`;
+
+const AwardTitle = styled.h3`
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+const AwardDescription = styled.p`
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -134,151 +137,45 @@ const ImageContainer = styled.div`
   }
 `;
 
-const AwardTitle = styled.h3`
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  margin-bottom: 10px;
-  font-weight: 700;
-  line-height: 1.4;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-`;
-
-const AwardDescription = styled.p`
-  font-size: 0.9rem;
-  color: #666666;
-  line-height: 1.5;
-  margin: 0;
-  max-width: 90%;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 20px;
+const MobileNavigation = styled.div`
+  display: none;
   justify-content: center;
-  margin-top: 30px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
 `;
 
-const CarouselButton = styled.button<{ direction: 'left' | 'right' }>`
-  width: 50px;
-  height: 50px;
+const NavigationButton = styled.button`
+  background: #333;
+  border: none;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #1a1a1a;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  color: white;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: #333333;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    transform: scale(1.05);
+    background: #000;
   }
 
-  svg {
-    font-size: 20px;
+  .anticon {
     color: white;
-  }
-
-  @media (max-width: 1100px) {
-    display: none;
+    font-size: 16px;
   }
 `;
 
 const Awards: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cardsRef = useRef<HTMLUListElement>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (!cardsRef.current) return;
-    
-    const cards = gsap.utils.toArray<HTMLLIElement>('.cards li');
-    gsap.set(cards, { xPercent: 400, opacity: 0, scale: 0.5, rotateY: 45, zIndex: -1 });
-
-    // Show initial cards
-    updateCardsVisibility(currentIndex);
-  }, []);
-
-  const updateCardsVisibility = (index: number) => {
-    if (!cardsRef.current) return;
-    setIsAnimating(true);
-
-    const cards = gsap.utils.toArray<HTMLLIElement>('.cards li');
-    const timeline = gsap.timeline({
-      onComplete: () => setIsAnimating(false),
-      defaults: {
-        duration: 0.5,
-        ease: "sine.inOut"
-      }
-    });
-
-    timeline.set(cards, { zIndex: -1 }, 0);
-
-    cards.forEach((card, i) => {
-      const position = (i - index + awards.length) % awards.length;
-      
-      if (position >= 0 && position <= 2) {
-        const rotation = position === 1 ? 0 : position === 0 ? -25 : 25;
-        const xOffset = position === 1 ? 0 : position === 0 ? -100 : 100;
-        const scale = position === 1 ? 1 : 0.8;
-        
-        timeline.to(card, {
-          xPercent: xOffset,
-          opacity: position === 1 ? 1 : 0.7,
-          scale: scale,
-          rotateY: rotation,
-          zIndex: position === 1 ? 2 : 1,
-          ease: "power3.out",
-          immediateRender: false
-        }, 0);
-
-        if (position === 1) {
-          timeline.to(card, {
-            scale: 1.05,
-            duration: 0.2,
-            ease: "elastic.out(1, 0.5)"
-          }, 0.3).to(card, {
-            scale: 1,
-            duration: 0.2,
-            ease: "power2.inOut"
-          }, 0.5);
-        }
-      } else {
-        const isLeft = position < 0;
-        timeline.set(card, {
-          opacity: 0,
-          immediateRender: true
-        }, 0);
-        timeline.to(card, {
-          xPercent: isLeft ? -400 : 400,
-          scale: 0.5,
-          rotateY: isLeft ? -45 : 45,
-          zIndex: -1,
-          immediateRender: false
-        }, 0);
-      }
-    });
-  };
-
-  const handlePrevClick = () => {
-    if (isAnimating) return;
-    const newIndex = (currentIndex - 1 + awards.length) % awards.length;
-    setCurrentIndex(newIndex);
-    updateCardsVisibility(newIndex);
-  };
-
-  const handleNextClick = () => {
-    if (isAnimating) return;
-    const newIndex = (currentIndex + 1) % awards.length;
-    setCurrentIndex(newIndex);
-    updateCardsVisibility(newIndex);
-  };
+  const [direction, setDirection] = useState(0);
+  const [dragStart, setDragStart] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const awards = [
     {
@@ -347,35 +244,133 @@ const Awards: React.FC = () => {
     }
   ];
 
+  const handlePrevious = () => {
+    setDirection(-1);
+    setCurrentIndex(prev => (prev === 0 ? awards.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex(prev => (prev === awards.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleDragStart = (event: TouchEvent | MouseEvent) => {
+    const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+    setDragStart(clientX);
+  };
+
+  const handleDragEnd = (event: TouchEvent | MouseEvent) => {
+    const clientX = 'changedTouches' in event ? event.changedTouches[0].clientX : event.clientX;
+    const delta = dragStart - clientX;
+
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) {
+        setDirection(1);
+        handleNext();
+      } else {
+        setDirection(-1);
+        handlePrevious();
+      }
+    }
+  };
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.8
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut'
+      }
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.8,
+      transition: {
+        duration: 0.3,
+        ease: 'easeIn'
+      }
+    })
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.addEventListener('touchstart', handleDragStart);
+    container.addEventListener('touchend', handleDragEnd);
+    container.addEventListener('mousedown', handleDragStart);
+    container.addEventListener('mouseup', handleDragEnd);
+
+    return () => {
+      container.removeEventListener('touchstart', handleDragStart);
+      container.removeEventListener('touchend', handleDragEnd);
+      container.removeEventListener('mousedown', handleDragStart);
+      container.removeEventListener('mouseup', handleDragEnd);
+    };
+  }, [dragStart]);
+
   return (
     <AwardsSection>
       <Container>
-        <Title>Our Achievements</Title>
-        <CarouselContainer>
-          <CarouselWrapper>
-            <ul className="cards" ref={cardsRef}>
-              {awards.map((award, index) => (
-                <li key={index}>
-                  <AwardCard>
-                    <ImageContainer>
-                      <img src={goldenLaurel} alt="Award Trophy" />
-                    </ImageContainer>
-                    <AwardTitle>{award.title}</AwardTitle>
-                    <AwardDescription>{award.description}</AwardDescription>
-                  </AwardCard>
-                </li>
-              ))}
-            </ul>
-            <ButtonContainer>
-              <CarouselButton direction="left" onClick={handlePrevClick}>
-                <LeftOutlined />
-              </CarouselButton>
-              <CarouselButton direction="right" onClick={handleNextClick}>
-                <RightOutlined />
-              </CarouselButton>
-            </ButtonContainer>
-          </CarouselWrapper>
-        </CarouselContainer>
+        <AwardsTitle level={2}>Our Achievements</AwardsTitle>
+        
+        <AwardsContainer ref={containerRef}>
+          {/* Desktop View */}
+          {window.innerWidth > 768 && awards.map((award, index) => (
+            <AwardCard
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <ImageContainer>
+                <img src={goldenLaurel} alt="Award Trophy" />
+              </ImageContainer>
+              <AwardTitle>{award.title}</AwardTitle>
+              <AwardDescription>{award.description}</AwardDescription>
+            </AwardCard>
+          ))}
+
+          {/* Mobile View */}
+          {window.innerWidth <= 768 && (
+            <CardContainer>
+              <AnimatePresence initial={false} mode="wait" custom={direction}>
+                <AwardCard
+                  key={currentIndex}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                >
+                  <ImageContainer>
+                    <img src={goldenLaurel} alt="Award Trophy" />
+                  </ImageContainer>
+                  <AwardTitle>{awards[currentIndex].title}</AwardTitle>
+                  <AwardDescription>{awards[currentIndex].description}</AwardDescription>
+                </AwardCard>
+              </AnimatePresence>
+            </CardContainer>
+          )}
+        </AwardsContainer>
+
+        {/* Mobile Navigation */}
+        <MobileNavigation>
+          <NavigationButton onClick={handlePrevious}>
+            <LeftOutlined />
+          </NavigationButton>
+          <NavigationButton onClick={handleNext}>
+            <RightOutlined />
+          </NavigationButton>
+        </MobileNavigation>
       </Container>
     </AwardsSection>
   );

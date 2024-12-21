@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import styled from 'styled-components';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons';
 import ebsLogo from './EBS logo.png';
 
 const StyledHeader = styled.header`
-  width: 100%;
+  background: white;
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: white;
-  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 `;
 
 const NavbarContainer = styled.div`
@@ -24,12 +24,20 @@ const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+
+  @media (max-width: 1024px) {
+    padding: 0 16px;
+  }
 `;
 
 const LogoSection = styled.div`
   display: flex;
   align-items: center;
   min-width: 280px;
+
+  @media (max-width: 1024px) {
+    min-width: auto;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -41,16 +49,33 @@ const LogoContainer = styled.div`
   img {
     height: 40px;
     width: auto;
-    object-fit: contain;
   }
 
   span {
-    font-size: 16px;
-    font-weight: 500;
-    color: #111;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
     white-space: nowrap;
     transition: all 0.2s ease;
     letter-spacing: -0.2px;
+  }
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    
+    img {
+      height: 32px;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    span {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -60,42 +85,40 @@ const NavLinks = styled.div`
   gap: 32px;
   justify-content: center;
   flex: 1;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const NavLink = styled(Link)<{ $active?: boolean }>`
-  color: ${props => props.$active ? '#111' : '#666'};
-  font-size: 15px;
+  color: ${props => props.$active ? '#0077b6' : '#666'};
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 4px;
   padding: 8px 0;
   position: relative;
+  transition: all 0.2s ease;
 
-  &:hover {
-    color: #111;
-  }
-
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 2px;
-    background: #111;
-    transform: scaleX(0);
+    background: #0077b6;
+    transform: scaleX(${props => props.$active ? 1 : 0});
+    transform-origin: left;
     transition: transform 0.2s ease;
   }
 
-  &:hover::after,
-  ${props => props.$active && `
-    &::after {
+  &:hover {
+    color: #0077b6;
+
+    &:after {
       transform: scaleX(1);
     }
-  `}
+  }
 `;
 
 const ActionButtons = styled.div`
@@ -104,6 +127,24 @@ const ActionButtons = styled.div`
   gap: 16px;
   min-width: 280px;
   justify-content: flex-end;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const LoginButton = styled(Button)`
+  height: 38px;
+  padding: 0 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  border-color: #0077b6;
+  color: #0077b6;
+
+  &:hover {
+    border-color: #023e8a !important;
+    color: #023e8a !important;
+  }
 `;
 
 const AboutUsButton = styled(Button)`
@@ -121,73 +162,150 @@ const AboutUsButton = styled(Button)`
   }
 `;
 
-const LoginButton = styled(Button)`
-  background: white;
-  color: #333;
-  border: 1px solid #ddd;
-  height: 38px;
-  padding: 0 24px;
-  border-radius: 6px;
-  font-weight: 500;
-  box-shadow: none;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: white !important;
-    color: #333 !important;
-    border-color: #bbb !important;
-  }
-`;
-
 const DropdownMenu = styled(Menu)`
   min-width: 300px;
   padding: 8px;
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  border: 1px solid #eee;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 
   .ant-dropdown-menu-item {
-    padding: 8px 16px;
-    border-radius: 6px;
-  }
-
-  .ant-menu-submenu-title {
-    padding: 8px 16px;
-    font-weight: 500;
-  }
-
-  .ant-menu-sub {
-    padding: 4px;
-    background: #f8f9fa;
+    padding: 12px 16px;
     border-radius: 8px;
-    margin-top: 4px;
+    
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+`;
+
+const MobileMenuButton = styled(Button)`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  padding: 4px;
+  color: #333;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .ant-menu-item {
-    margin: 4px 0;
-    padding: 8px 16px;
-    border-radius: 6px;
-    white-space: nowrap;
+  &:hover, &:focus {
+    color: #0077b6;
+    background: none;
+  }
+`;
 
-    &:hover {
-      background: #e9ecef;
-    }
+const MobileMenu = styled.div<{ $isOpen: boolean }>`
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: white;
+  padding: 24px;
+  transform: translateX(${props => props.$isOpen ? '0' : '100%'});
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  z-index: 999;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
+
+const MobileNavLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const MobileNavLink = styled(Link)<{ $active?: boolean }>`
+  color: ${props => props.$active ? '#0077b6' : '#666'};
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #0077b6;
+  }
+`;
+
+const MobileActionButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+
+  ${LoginButton}, ${AboutUsButton} {
+    width: 100%;
+    height: 44px;
+    font-size: 1rem;
   }
 `;
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleHomeClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    navigate('/');
   };
+
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <Link to="/personal-loan">
+          Personal Loan
+        </Link>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <Link to="/business-loan">
+          Business Loan
+        </Link>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <Link to="/home-loan">
+          Home Loan
+        </Link>
+      ),
+    },
+    {
+      key: '4',
+      label: (
+        <Link to="/education-loan">
+          Education Loan
+        </Link>
+      ),
+    },
+  ];
 
   const cardItems: MenuProps['items'] = [
     {
@@ -298,13 +416,16 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <StyledHeader>
+    <StyledHeader style={{ 
+      boxShadow: scrolled ? '0 2px 8px rgba(0, 0, 0, 0.1)' : 'none',
+      transition: 'box-shadow 0.3s ease'
+    }}>
       <NavbarContainer>
         <LogoSection>
           <Link to="/" onClick={handleHomeClick}>
             <LogoContainer>
               <img src={ebsLogo} alt="EBS Finance" />
-              <span>Everyday Banking Solutions</span>
+              <span>EBS Finance</span>
             </LogoContainer>
           </Link>
         </LogoSection>
@@ -338,6 +459,53 @@ const Navbar: React.FC = () => {
             <AboutUsButton>About Us</AboutUsButton>
           </Link>
         </ActionButtons>
+
+        <MobileMenuButton
+          icon={isMobileMenuOpen ? <CloseOutlined /> : <MenuOutlined />}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
+
+        <MobileMenu $isOpen={isMobileMenuOpen}>
+          <MobileNavLinks>
+            <MobileNavLink 
+              to="/" 
+              $active={location.pathname === '/'} 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </MobileNavLink>
+            <MobileNavLink 
+              to="/credit-cards" 
+              $active={location.pathname.includes('credit-cards')}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Cards
+            </MobileNavLink>
+            <MobileNavLink 
+              to="/loans" 
+              $active={location.pathname.includes('/loan')}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Loans
+            </MobileNavLink>
+            <MobileNavLink 
+              to="/insurance" 
+              $active={location.pathname.includes('insurance')}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Insurance
+            </MobileNavLink>
+          </MobileNavLinks>
+
+          <MobileActionButtons>
+            <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+              <LoginButton>Login</LoginButton>
+            </Link>
+            <Link to="/about-us" onClick={() => setIsMobileMenuOpen(false)}>
+              <AboutUsButton>About Us</AboutUsButton>
+            </Link>
+          </MobileActionButtons>
+        </MobileMenu>
       </NavbarContainer>
     </StyledHeader>
   );
